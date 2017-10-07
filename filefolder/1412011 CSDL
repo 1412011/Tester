@@ -1,1 +1,11 @@
 Cơ sỏe dữ liệu - database
+$ git flow feature start authentication
+Switched to a new branch 'feature/authentication'
+
+Summary of actions:
+- A new branch 'feature/authentication' was created, based on 'develop'
+- You are now on branch 'feature/authentication'
+
+Now, start committing on your feature. When done, use:
+
+     git flow feature finish authentication
