@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 package com.spring.dao;
-
+import com.spring.model.*;
+import java.util.List;
 /**
  *
  * @author HOANG ANH
  */
 public interface DishDao {
-    
+    List<Dish> getListDishOnBranch(int id_branch);
+            
 }

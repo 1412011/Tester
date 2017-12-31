@@ -5,10 +5,13 @@
  */
 package com.spring.service;
 
+import com.spring.model.Dish;
+import java.util.List;
+
 /**
  *
  * @author HOANG ANH
  */
 public interface DishService {
-    
+    List<Dish> getListDishOnBranch(int id_branch);
 }
