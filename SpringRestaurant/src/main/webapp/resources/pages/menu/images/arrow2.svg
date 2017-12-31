@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="10px" height="6px" viewBox="0 0 10 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>F6BE37E1-11E0-478D-B37D-FBC73BF99218</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M66.0398964,8.23079982 C65.9864882,8.17739168 65.9873896,8.08989865 66.0384722,8.03881601 C66.0910938,7.98619441 66.1776867,7.98747083 66.230456,8.04024016 L69.9491421,11.7589262 C70.0025502,11.8123343 70.0016489,11.8998274 69.9505662,11.95091 C69.8979446,12.0035316 69.8113517,12.0022552 69.7585824,11.9494859 L66.0398964,8.23079982 Z M73.7692002,8.04024016 C73.8226083,7.98683203 73.9101014,7.98773337 73.961184,8.03881601 C74.0138056,8.0914376 74.0125292,8.17803048 73.9597598,8.23079982 L70.2410738,11.9494859 C70.1876657,12.002894 70.1001726,12.0019927 70.04909,11.95091 C69.9964684,11.8982884 69.9977448,11.8116955 70.0505141,11.7589262 L73.7692002,8.04024016 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-0.5" y="-0.5" width="9" height="4.98972602">
+            <rect x="65.5" y="7.5" width="9" height="4.98972602" fill="white"></rect>
+            <use xlink:href="#path-1" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.1-Homepage" transform="translate(-941.000000, -66.000000)">
+            <g id="Group-29" transform="translate(0.000000, 38.000000)">
+                <g id="Group-23" transform="translate(876.000000, 21.000000)">
+                    <g id="Arrow-Copy">
+                        <use fill="#868A86" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <use stroke="#868A86" mask="url(#mask-2)" stroke-width="1" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
