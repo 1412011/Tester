@@ -20,37 +20,37 @@
         <property name="branchProvince" type="string">
             <column name="branch_province" length="50" not-null="true" />
         </property>
-        <set name="costIncurredAMonths" table="cost_incurred_a_month" inverse="true" lazy="true" fetch="select">
+        <set name="costIncurredAMonths" table="cost_incurred_a_month" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="branch_id" not-null="true" />
             </key>
             <one-to-many class="com.spring.model.CostIncurredAMonth" />
         </set>
-        <set name="dishPriceBranches" table="dish_price_branch" inverse="true" lazy="true" fetch="select">
+        <set name="dishPriceBranches" table="dish_price_branch" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="branch_id" not-null="true" />
             </key>
             <one-to-many class="com.spring.model.DishPriceBranch" />
         </set>
-        <set name="tables" table="table" inverse="true" lazy="true" fetch="select">
+        <set name="tables" table="table" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="branch_id" not-null="true" />
             </key>
             <one-to-many class="com.spring.model.Table" />
         </set>
-        <set name="costIncurredADays" table="cost_incurred_a_day" inverse="true" lazy="true" fetch="select">
+        <set name="costIncurredADays" table="cost_incurred_a_day" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="branch_id" not-null="true" />
             </key>
             <one-to-many class="com.spring.model.CostIncurredADay" />
         </set>
-        <set name="branchMenus" table="branch_menu" inverse="true" lazy="true" fetch="select">
+        <set name="branchMenus" table="branch_menu" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="branch_id" not-null="true" />
             </key>
             <one-to-many class="com.spring.model.BranchMenu" />
         </set>
-        <set name="orders" table="order" inverse="true" lazy="true" fetch="select">
+        <set name="orders" table="order" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="branch_id" not-null="true" />
             </key>

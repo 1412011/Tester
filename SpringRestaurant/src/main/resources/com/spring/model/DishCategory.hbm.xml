@@ -11,13 +11,13 @@
         <property name="dishCategoryName" type="string">
             <column name="dish_category_name" length="120" not-null="true" />
         </property>
-        <set name="branchMenus" table="branch_menu" inverse="true" lazy="true" fetch="select">
+        <set name="branchMenus" table="branch_menu" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="dish_category_id" not-null="true" />
             </key>
             <one-to-many class="com.spring.model.BranchMenu" />
         </set>
-        <set name="dishes" table="dish" inverse="true" lazy="true" fetch="select">
+        <set name="dishes" table="dish" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="dish_category_id" not-null="true" />
             </key>

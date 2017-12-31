@@ -20,7 +20,7 @@
         <property name="username" type="string">
             <column name="username" not-null="true" />
         </property>
-        <set name="orders" table="order" inverse="true" lazy="true" fetch="select">
+        <set name="orders" table="order" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="client_id" not-null="true" />
             </key>

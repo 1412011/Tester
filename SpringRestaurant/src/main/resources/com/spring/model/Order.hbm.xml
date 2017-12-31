@@ -8,10 +8,10 @@
             <column name="order_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="branch" class="com.spring.model.Branch" fetch="select">
+        <many-to-one name="branch" class="com.spring.model.Branch" fetch="join">
             <column name="branch_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="client" class="com.spring.model.Client" fetch="select">
+        <many-to-one name="client" class="com.spring.model.Client" fetch="join">
             <column name="client_id" not-null="true" />
         </many-to-one>
         <property name="orderStatus" type="int">
@@ -26,7 +26,7 @@
         <property name="orderType" type="int">
             <column name="order_type" not-null="true" />
         </property>
-        <set name="orderDishes" table="order_dish" inverse="true" lazy="true" fetch="select">
+        <set name="orderDishes" table="order_dish" inverse="true" lazy="true" fetch="join">
             <key>
                 <column name="order_id" not-null="true" />
             </key>

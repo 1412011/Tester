@@ -8,10 +8,10 @@
             <column name="branch_menu_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="branch" class="com.spring.model.Branch" fetch="select">
+        <many-to-one name="branch" class="com.spring.model.Branch" fetch="join">
             <column name="branch_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="dishCategory" class="com.spring.model.DishCategory" fetch="select">
+        <many-to-one name="dishCategory" class="com.spring.model.DishCategory" fetch="join">
             <column name="dish_category_id" not-null="true" />
         </many-to-one>
     </class>

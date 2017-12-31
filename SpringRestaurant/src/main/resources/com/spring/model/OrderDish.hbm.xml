@@ -12,10 +12,10 @@
                 <column name="dish_id" />
             </key-property>
         </composite-id>
-        <many-to-one name="dish" class="com.spring.model.Dish" update="false" insert="false" fetch="select">
+        <many-to-one name="dish" class="com.spring.model.Dish" update="false" insert="false" fetch="join">
             <column name="dish_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="order" class="com.spring.model.Order" update="false" insert="false" fetch="select">
+        <many-to-one name="order" class="com.spring.model.Order" update="false" insert="false" fetch="join">
             <column name="order_id" not-null="true" />
         </many-to-one>
         <property name="amount" type="int">

@@ -8,7 +8,7 @@
             <column name="table_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="branch" class="com.spring.model.Branch" fetch="select">
+        <many-to-one name="branch" class="com.spring.model.Branch" fetch="join">
             <column name="branch_id" not-null="true" />
         </many-to-one>
         <property name="tableName" type="string">
