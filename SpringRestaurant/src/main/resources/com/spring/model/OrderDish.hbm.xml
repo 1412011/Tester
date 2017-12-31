@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 31, 2017 2:05:29 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.spring.model.OrderDish" table="order_dish" catalog="restaurantmanagement" optimistic-lock="version">
+        <composite-id name="id" class="com.spring.model.OrderDishId">
+            <key-property name="orderId" type="int">
+                <column name="order_id" />
+            </key-property>
+            <key-property name="dishId" type="int">
+                <column name="dish_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="dish" class="com.spring.model.Dish" update="false" insert="false" fetch="select">
+            <column name="dish_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="order" class="com.spring.model.Order" update="false" insert="false" fetch="select">
+            <column name="order_id" not-null="true" />
+        </many-to-one>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

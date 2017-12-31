@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 31, 2017 2:05:29 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.spring.model.DishCategory" table="dish_category" catalog="restaurantmanagement" optimistic-lock="version">
+        <id name="dishCategoryId" type="java.lang.Integer">
+            <column name="dish_category_id" />
+            <generator class="identity" />
+        </id>
+        <property name="dishCategoryName" type="string">
+            <column name="dish_category_name" length="120" not-null="true" />
+        </property>
+        <set name="branchMenus" table="branch_menu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="dish_category_id" not-null="true" />
+            </key>
+            <one-to-many class="com.spring.model.BranchMenu" />
+        </set>
+        <set name="dishes" table="dish" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="dish_category_id" not-null="true" />
+            </key>
+            <one-to-many class="com.spring.model.Dish" />
+        </set>
+    </class>
+</hibernate-mapping>

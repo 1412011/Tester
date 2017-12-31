@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 31, 2017 2:05:29 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.spring.model.Info" table="info" catalog="restaurantmanagement" optimistic-lock="version">
+        <id name="infoId" type="java.lang.Integer">
+            <column name="info_id" />
+            <generator class="identity" />
+        </id>
+        <property name="hotline" type="string">
+            <column name="hotline" length="13" not-null="true" />
+        </property>
+        <property name="introduction" type="string">
+            <column name="introduction" length="120" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

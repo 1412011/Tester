@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 31, 2017 2:05:29 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.spring.model.Order" table="order" catalog="restaurantmanagement" optimistic-lock="version">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="order_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="branch" class="com.spring.model.Branch" fetch="select">
+            <column name="branch_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="client" class="com.spring.model.Client" fetch="select">
+            <column name="client_id" not-null="true" />
+        </many-to-one>
+        <property name="orderStatus" type="int">
+            <column name="order_status" not-null="true" />
+        </property>
+        <property name="dateApprove" type="timestamp">
+            <column name="date_approve" length="19" />
+        </property>
+        <property name="dateDelivery" type="timestamp">
+            <column name="date_delivery" length="19" />
+        </property>
+        <property name="orderType" type="int">
+            <column name="order_type" not-null="true" />
+        </property>
+        <set name="orderDishes" table="order_dish" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="order_id" not-null="true" />
+            </key>
+            <one-to-many class="com.spring.model.OrderDish" />
+        </set>
+    </class>
+</hibernate-mapping>
