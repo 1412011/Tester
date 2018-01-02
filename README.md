@@ -1,2 +1,0 @@
-# Tester
-Sử dụng Git
