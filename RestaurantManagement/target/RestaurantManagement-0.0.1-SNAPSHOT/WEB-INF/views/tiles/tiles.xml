@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+        <definition name="base-definition"
+		template="/WEB-INF/views/tiles/layouts/layout.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+                <put-attribute name="header"
+			value="/WEB-INF/views/tiles/template/header.jsp"></put-attribute>
+		<put-attribute name="footer"
+			value="/WEB-INF/views/tiles/template/footer.jsp"></put-attribute>
+	</definition>
+        
+        <definition name="home" extends="base-definition">
+		<put-attribute name="title" value="HOME"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/pages/home.jsp"></put-attribute>
+	</definition>
+        
+<!--	<definition name="base-definition"
+		template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="css" value=""></put-attribute>
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="content" value=""></put-attribute>
+		<put-attribute name="footer"
+			value="/WEB-INF/views/tiles/template/defaultFooter.jsp"></put-attribute>
+		<put-attribute name="js" value=""></put-attribute>
+	</definition>
+
+	<definition name="about/about" extends="base-definition">
+		<put-attribute name="title" value="About"></put-attribute>
+		<put-attribute name="css"
+			value="/WEB-INF/views/pages/about/aboutCss.jsp"></put-attribute>
+		<put-attribute name="header"
+			value="/WEB-INF/views/pages/about/aboutHeader.jsp"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/views/pages/about/aboutContent.jsp"></put-attribute>
+	</definition>
+
+	<definition name="account/orderHistory" extends="base-definition">
+		<put-attribute name="title" value="Order History"></put-attribute>
+		<put-attribute name="css"
+			value="/WEB-INF/views/pages/account/orderHistoryCss.jsp"></put-attribute>
+		<put-attribute name="header"
+			value="/WEB-INF/views/pages/account/orderHistoryHeader.jsp"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/views/pages/account/orderHistoryContent.jsp"></put-attribute>
+		<put-attribute name="js"
+			value="/WEB-INF/views/pages/account/orderHistoryJs.jsp"></put-attribute>
+	</definition>
+
+	<definition name="checkout/checkout" extends="base-definition">
+		<put-attribute name="title" value="Check out"></put-attribute>
+		<put-attribute name="css"
+			value="/WEB-INF/views/pages/checkout/checkoutCss.jsp"></put-attribute>
+		<put-attribute name="header"
+			value="/WEB-INF/views/pages/checkout/checkoutHeader.jsp"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/views/pages/checkout/checkoutContent.jsp"></put-attribute>
+		<put-attribute name="js"
+			value="/WEB-INF/views/pages/checkout/checkoutJs.jsp"></put-attribute>
+	</definition>
+
+	<definition name="product/product" extends="base-definition">
+		<put-attribute name="title" value="Product"></put-attribute>
+		<put-attribute name="css"
+			value="/WEB-INF/views/pages/product/productCss.jsp"></put-attribute>
+		<put-attribute name="header"
+			value="/WEB-INF/views/pages/product/productHeader.jsp"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/views/pages/product/productContent.jsp"></put-attribute>
+		<put-attribute name="js"
+			value="/WEB-INF/views/pages/product/productJs.jsp"></put-attribute>
+	</definition>
+
+	<definition name="home/home" extends="base-definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="css"
+			value="/WEB-INF/views/pages/home/homeCss.jsp"></put-attribute>
+		<put-attribute name="header"
+			value="/WEB-INF/views/pages/home/homeHeader.jsp"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/views/pages/home/homeContent.jsp"></put-attribute>
+		<put-attribute name="js"
+			value="/WEB-INF/views/pages/home/homeJs.jsp"></put-attribute>
+	</definition>-->
+
+</tiles-definitions>

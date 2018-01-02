@@ -1,0 +1,27 @@
+.item {
+	margin-top: 30px;
+	width: 60%;
+	display: table;
+	margin: auto;
+	
+	background-color: #fff;
+    box-shadow: 0 1px 10px #dadada;
+    margin-bottom: 30px;
+}
+
+.orderInfo {
+	padding: 9px 20px;
+	background: #FAFAD9;
+}
+
+body {
+	background-color: #f7f7f7;
+}
+
+#divContent {
+	padding-top: 100px;
+}
+
+.imgDish {
+	width: 100px;
+}

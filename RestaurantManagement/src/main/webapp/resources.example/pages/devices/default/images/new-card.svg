@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="31px" height="20px" viewBox="0 0 31 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>77114515-7306-4FF1-A8B8-B11AC84DF5EC</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Checkout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.550897854">
+        <g id="4.4.3-Checkout---Online-Payment---Saved-Cards" transform="translate(-313.000000, -895.000000)">
+            <g id="Group-6" transform="translate(313.000000, 895.000000)">
+                <g id="Card">
+                    <g id="Rectangle-1-+-Rectangle-3">
+                        <rect id="Rectangle-1" fill-opacity="0.381623641" fill="#4A4A4A" x="0" y="0" width="31" height="20" rx="2"></rect>
+                        <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="5" width="31" height="3.75"></rect>
+                    </g>
+                    <path d="M4.34,13.125 L13.02,13.125" id="Line" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M4.34,15.625 L9.3,15.625" id="Line-2" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <rect id="Rectangle-10" fill="#FFFFFF" x="22.32" y="12.5" width="4.96" height="3.75"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
