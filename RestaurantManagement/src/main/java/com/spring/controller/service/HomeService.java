@@ -105,4 +105,11 @@ public class HomeService {
 	public void setDefaultContentPage() {
 		
 	}
+        
+        public List<Dish> getDishList_ON_Branch(int idbranch)
+        {
+            List<Dish> listDishOnBranch = _dishService.getListDishOnBranch(idbranch);
+            return listDishOnBranch;
+        }
+        
 }

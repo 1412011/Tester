@@ -47,7 +47,12 @@ public class HomeController extends HomeService {
 //			modelMap.addAttribute("branchAddress", SessionUtil.branchAddress);
 //			modelMap.addAttribute("total", SessionUtil.getTotalDishInOrder());
 //	    }
-	    
+	    //if(SessionUtil.branchId != -1)
+            {
+                List<Dish> listDishOnBranch = getDishList_ON_Branch(1000);
+                modelMap.addAttribute("listDishOnBranch", listDishOnBranch);
+            }
+
 		return "home";
 	}
 	

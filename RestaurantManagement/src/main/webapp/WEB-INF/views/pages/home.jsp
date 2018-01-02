@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="gradient fm-main-header ">
         <nav>
             <img style="height:60px;width:139px;cursor: pointer;" src="resources/images/header-logo.svg" alt="FreshMenu">
@@ -99,7 +100,7 @@
          <!-- End Cart  -->
     </div>
 
-    <header ng-show="menu.serviceability.serviceable==true" class="">
+    <header class="">
         <div class="hero-container">
             <div id="hero" class="with-collection-nav preloaded" style="max-height: 563px;">
                 <div>
@@ -132,10 +133,11 @@
         <div class="fm-menu-main-container">
 
             <div class="fm-menu-right-container">
+                <c:if test="${not empty listDishOnBranch}">
                 <div id="main" class="twoGrid">
                     <h2 style="margin-top: 0px;">
                             <span class="fm-category-header ng-binding">
-                            Mains and Sides
+                            Menu Dish Side
                         </span>
                         <div class="fm-collection-description ng-binding" >
                             Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.
@@ -143,12 +145,14 @@
                       </h2>
                     <div>
                         <div class="list clearfix" id="fm-category-collection-Mains_and_Sides">
+                           <c:forEach var="dish" items="${listDishOnBranch }">
                             <div class="item ng-scope twoGrid">
                                 <!-- 'in-cart': (inCart(product.id)>=0), -->
                                 <div class="content out-cart">
                                     <!-- ngIf: !lazyLoadEnabled -->
                                     <div class="fm-image-container ng-scope">
-                                        <a class="fm-image preloaded" count="0" preload-bg-image="//d12nlatdsuu5f7.cloudfront.net/f71ca8c7-3bea-4bb2-9856-905b924a86dd.jpg" alt="Tex-Mex Cottage Cheese Fajita (Veg)" style="background-image: url('resources/images/dish1.jpg');">
+                                        <a class="fm-image preloaded" count="0" preload-bg-image="//d12nlatdsuu5f7.cloudfront.net/f71ca8c7-3bea-4bb2-9856-905b924a86dd.jpg" alt="Tex-Mex Cottage Cheese Fajita (Veg)" 
+                                           style="background-image: url('resources/images/${dish.image}.jpg');">
                                             <div class="spinner">
                                                 <div class="sk-circle">
                                                     <div class="sk-circle1 sk-child"></div>
@@ -175,7 +179,7 @@
                                         </div>
                                         <div class="info" count="0">
                                             <h4 style="margin-bottom: 0px;" itemprop="name">
-                                                    Tex-Mex Cottage Cheese Fajita
+                                                    ${dish.name}
                                                 </h4>
                                             <div class="fm-item-description" style="display: block;" itemprop="review" itemscope="" itemtype="http://schema.org/Review">
                                             </div>
@@ -194,10 +198,10 @@
                                         <div class="fm-actions" count="0">
                                             <div class="price" itemscope="" itemtype="http://schema.org/Offer">
                                                 <span class="fm-discount-price ng-binding ng-scope">
-                                                        $195
+                                                        ${dish.price}
                                                     </span>
                                                 <!-- end ngIf: product.marketPrice && product.marketPrice > product.sellingPrice -->
-                                                <span itemprop="price" class="ng-binding">$180</span>
+                                                <span itemprop="price" class="ng-binding">${dish.price}</span>
                                                 <span class="fm-discount-price-percent ng-binding ng-scope">
                                                         8% OFF
                                                     </span>
@@ -223,10 +227,11 @@
 
                                 </div>
                             </div>
-                            
+                           </c:forEach>
                         </div>
                     </div>
                 </div>
+                </c:if>
                 <!--End category dish-->
             </div>
         </div>

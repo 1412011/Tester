@@ -10,4 +10,5 @@ public interface DishService {
 	Dish getFullDishInfoById(int dishId);
 	List<Dish> getOrderedDishListByOrderId(int orderId);
 	List<Dish> getBestDishSellerListByBranchId(int branchId);
+        List<Dish> getListDishOnBranch(int branch_id);
 }

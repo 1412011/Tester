@@ -11,4 +11,7 @@ public interface DishDao {
 	Object[] getFullDishInfoById(int dishId);
 	List<Object[]> getOrderedDishListByOrderId(int orderId);
 	List<Object[]> getBestDishSellerListByBranchId(int branchId);
+        //
+        List<Object[]> getDishListByBrandId(int BranchId);
+        int getPriceByDishId(int id_dish, int id_branch);
 }

@@ -61,4 +61,24 @@ public class DishDaoImpl extends AbstractDao<Integer, Dish> implements DishDao {
 		return listBestDishSeller;
 	}
 
+    @Override
+    public List<Object[]> getDishListByBrandId(int BranchId) {
+          String sql = "select * from dish where dish.dish_category_id in "
+                  + "(select bm.dish_category_id from branch_menu bm where bm.branch_id = :idbranch)";
+          SQLQuery query = getSession().createSQLQuery(sql);
+          query.setInteger("idbranch", BranchId);
+          List<Object[]> listDishOnBranch = query.list();
+          return listDishOnBranch;
+    }
+
+    @Override
+    public int getPriceByDishId(int id_dish, int id_branch) {
+        String sql = "SELECT db.price FROM dish_price_branch db WHERE db.dish_id = :id_dish AND db.branch_id = :id_branch";
+        SQLQuery query = getSession().createSQLQuery(sql);
+        query.setInteger("id_dish", id_dish);
+	query.setInteger("id_branch", id_branch);
+	int price = (int)query.uniqueResult();
+        return price;
+    }
+
 }
