@@ -29,7 +29,7 @@ import com.spring.util.SessionUtil;
 public class HomeController extends HomeService {
 	
 	@RequestMapping(value = { "/", "/welcome**"}, method = RequestMethod.GET)
-	public String loadHomePage(ModelMap modelMap) {
+	public String loadHomePage(ModelMap modelMap, HttpServletRequest request) {
 //		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 //	    String username = auth.getName();
 //	    if(!username.equals("anonymousUser")) {
@@ -47,6 +47,12 @@ public class HomeController extends HomeService {
 //			modelMap.addAttribute("branchAddress", SessionUtil.branchAddress);
 //			modelMap.addAttribute("total", SessionUtil.getTotalDishInOrder());
 //	    }
+            List<Dish> listcarthome = (List<Dish>)request.getSession().getAttribute("listcart");
+            if(listcarthome == null)
+            {
+                listcarthome = new ArrayList<Dish>();
+            }
+            request.getSession().setAttribute("listcart", listcarthome);
 	    //if(SessionUtil.branchId != -1)
             {
                 List<Dish> listDishOnBranch = getDishList_ON_Branch(1000);
@@ -153,6 +159,12 @@ public class HomeController extends HomeService {
 	public String loadAboutPage(ModelMap modelMap) {
 		modelMap.addAttribute("ok", "ok");
 		return "about/about";
+	}
+        
+        @RequestMapping(value = "/addToCarthome", method = RequestMethod.POST)
+	public void Addtocart(ModelMap modelMap, @RequestParam(value ="id") int id, HttpServletRequest request) {
+            
+            
 	}
 	
 }

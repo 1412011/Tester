@@ -111,5 +111,34 @@ public class HomeService {
             List<Dish> listDishOnBranch = _dishService.getListDishOnBranch(idbranch);
             return listDishOnBranch;
         }
+         public void init()
+         {
+             return;
+         }
+       
+         private void _addToCartProcessHome(Dish dish) {
+		for (int i = 0; i < SessionUtil.cartList.size(); i++) {
+			if (SessionUtil.cartList.get(i).getId() == dish.getId()) {
+				SessionUtil.cartList.get(i).setQuantity(SessionUtil.cartList.get(i).getQuantity() + 1);
+				return;
+			}
+		}
+		if(dish.getQuantity() == 0) {
+			dish.setQuantity(1);
+		}
+		SessionUtil.cartList.add(dish);
+	}
+	
+	public int addToCartHome(int dishId) {
+		try {
+			Dish dish = _dishService.getFullDishInfoById(dishId);
+			_addToCartProcessHome(dish);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return 0;
+		}
+		return 1;
+	}
+	
         
 }

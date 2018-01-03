@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
     var mainHeader = $('.fm-main-header');
@@ -184,5 +185,19 @@ $(document).ready(function() {
         e.stopPropagation();
     });
 
+    $('.add').on('click', function(e)
+    {
+        var id = $(this).data('id');
+        $.ajax({
+		type : "POST",
+		url : "addToCarthome?id=" + id,
+		success : function(data) {
+			console.log(data);
+		},
+		error : function(xhr, status, error) {
+			console.log(xhr.responseText);
+		},
+	})
+    });
 
 });

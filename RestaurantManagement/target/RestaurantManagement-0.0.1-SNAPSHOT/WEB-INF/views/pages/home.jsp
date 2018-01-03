@@ -32,72 +32,7 @@
                 <input class="form-control mr-sm-2" id="inputsearch" type="search" placeholder="Search" aria-label="Search">
               </form>
         </div>
-         <!-- End Search -->
-
-         <!-- Cart -->
-<!--        <div id="fm-cart-home">   
-             <div class="box">
-
-                        <form method="post" action="">
-                            <div class="table-responsive">
-                                <table class="table" id="table-cart">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Product</th>
-                                            <th>Quantity</th>
-                                            <th>Unit price</th>
-                                            <th>Discount</th>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="3"><a href="#">White Blouse Armani</a>
-                                            </td>
-                                            <td>
-                                                <input type="number" value="2" class="form-control" min="1">
-                                            </td>
-                                            <td>$123.00</td>
-                                            <td>$0.00</td>
-                                            <td>$246.00</td>
-                                            <td><a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"><a href="#">Black Blouse Armani</a>
-                                            </td>
-                                            <td>
-                                                <input type="number" value="1" class="form-control">
-                                            </td>
-                                            <td>$200.00</td>
-                                            <td>$0.00</td>
-                                            <td>$200.00</td>
-                                            <td><a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th colspan="5">Total</th>
-                                            <th colspan="2">$446.00</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-
-                            </div>
-                             /.table-responsive 
-                                     <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button> 
-                                     <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>
-                                    </button> 
-                                    <input type="submit" value="Proceed to checkout >>">
-
-                        </form>
-
-                    </div>
-                     /.box 
-        </div>-->
-         <!-- End Cart  -->
+        
     </div>
 
     <header class="">
@@ -190,24 +125,24 @@
                                                 </div>
                                                 <span itemprop="category">Tex-Mex</span>
                                             </div>
-                                            <span class="delivery ng-binding ng-scope hide-element">
+<!--                                            <span class="delivery ng-binding ng-scope hide-element">
                                                     Available from 11:00AM
-                                                 </span>
+                                                 </span>-->
                                             <!-- end ngIf: !checkTimings(product.timings, true) -->
                                         </div>
                                         <div class="fm-actions" count="0">
                                             <div class="price" itemscope="" itemtype="http://schema.org/Offer">
-                                                <span class="fm-discount-price ng-binding ng-scope">
+<!--                                                <span class="fm-discount-price ng-binding ng-scope">
                                                         ${dish.price}
-                                                    </span>
+                                                    </span>-->
                                                 <!-- end ngIf: product.marketPrice && product.marketPrice > product.sellingPrice -->
                                                 <span itemprop="price" class="ng-binding">${dish.price}</span>
-                                                <span class="fm-discount-price-percent ng-binding ng-scope">
+<!--                                                <span class="fm-discount-price-percent ng-binding ng-scope">
                                                         8% OFF
-                                                    </span>
+                                                    </span>-->
                                                 <!-- end ngIf: product.marketPrice && product.marketPrice > product.sellingPrice -->
                                             </div>
-                                            <div class="button add no-animate ng-scope">
+                                            <div class="button add no-animate ng-scope" data-id="${dish.id }">
                                                 <div class="ng-scope">Add to cart</div>
                                             </div>
                                         </div>
@@ -251,6 +186,8 @@
             </div>
             <div class="fm-delivery-fee-msg ng-binding" ng-class="{'fm-delivery-fee-msg--show': validation.message &amp;&amp; validation.message != ''}">
             </div>
+            <c:forEach var="items" items="${listcart}">
+<!--            items-->
             <div class="items ng-hide" ng-show="cart.items.length">
                 <!-- ngRepeat: item in cart.items -->
                 <div class="item ng-scope" ng-repeat="item in cart.items" style="">
@@ -259,7 +196,7 @@
                         <div class="cuisine-icon-dot">
                         </div>
                     </div>
-                   <span class="title ng-binding ng-scope" ng-if="item.productDTO.subTitle.length > 0">Kasturi Chicken in Mangalore Gassi</span>
+                   <span class="title ng-binding ng-scope" ng-if="item.productDTO.subTitle.length > 0">${items.name}</span>
 <!--                     <div class="pre-order ng-binding ng-scope" ng-if="!checkTimings(item.productDTO.timings, true)">
                         Available only after 11:00AM
                     </div> -->
@@ -276,7 +213,7 @@
                             <div ng-if="getProductQuantity(item.productDTO)>0" ng-click="removeFromCart(item.productDTO,1);$event.stopPropagation();fireGAEvent('Menu', 'click', 'remove_from_cart')" class="ng-scope">-</div>
                             <!-- end ngIf: getProductQuantity(item.productDTO)>0 -->
                             <!-- ngIf: getProductQuantity(item.productDTO)>0 -->
-                            <div class="count ng-binding ng-scope" ng-if="getProductQuantity(item.productDTO)>0">1</div>
+                            <div class="count ng-binding ng-scope" ng-if="getProductQuantity(item.productDTO)>0">${items.quantity}</div>
                             <!-- end ngIf: getProductQuantity(item.productDTO)>0 -->
                             <!-- ngIf: getProductQuantity(item.productDTO)>0 -->
                             <div ng-if="getProductQuantity(item.productDTO)>0" ng-click="addToCart(item.productDTO,1);$event.stopPropagation();fireGAEvent('Menu', 'click', 'pre_order')" class="ng-scope">+</div>
@@ -284,7 +221,7 @@
                         </div>
                         <!-- end ngIf: !item.productDTO.soldOut && (!checkTimings(item.productDTO.timings, true) || kitchenClosed) -->
                         <span class="price">
-                        <span ng-show="!checkoutCartLoading0 &amp;&amp; item.totalPrice" class="ng-binding">$ 220</span>
+                        <span ng-show="!checkoutCartLoading0 &amp;&amp; item.totalPrice" class="ng-binding">$ ${items.price}</span>
                         <div ng-show="checkoutCartLoading0 || !item.totalPrice" class="ng-hide">
                             <i class="fa fa-circle-o-notch fa-spin hide-element"></i>
                         </div>
@@ -292,7 +229,8 @@
                     </div>
                 </div>
             </div>
-
+        </c:forEach>
+            <c:if test ="${not empty listcart}">
             <!-- Button Place order  -->
             <div class="proceed ng-hide" ng-show="cart.items.length">
                 <div class="free-items ng-hide" ng-show="cart.fi.length">
@@ -306,15 +244,17 @@
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>
             </div>
+            </c:if>
             <!-- End button Place Order -->
-
+            <c:if test ="${empty listcart}">
             <!-- ngIf: cart.items.length == 0 -->
-            <div class="ng-scope hide-element" ng-if="cart.items.length == 0" style="">
+            <div class="ng-scope hide-element"  style="">
                 <img ng-src="pages/menu/resources/images/ghost1.1.svg" src="pages/menu/resources/images/ghost1.1.svg">
                 <h3>Your cart is empty.</h3>
                 <h4>Add some delicious food available on our menu to checkout.</h4>
                 <button class="btn btn--red" ng-click="closeCart(); fireGAEvent('Cart', 'click', 'browse_food')">Browse Food</button>
             </div>
+            </c:if>
             <!-- end ngIf: cart.items.length == 0 -->
         </div>
         <div class="recommended ng-hide" ng-show="upsaleProducts.length">

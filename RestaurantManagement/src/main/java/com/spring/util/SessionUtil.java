@@ -12,6 +12,7 @@ public class SessionUtil {
 	public static String branchAddress;
 	
 	public static List<Dish> cartList = new ArrayList<>();
+        public static List<Dish> _cartListhome = new ArrayList<>();
 	
 	public static int getTotalDishInOrder() {
 		int total = 0;
