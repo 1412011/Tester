@@ -8,7 +8,7 @@ import com.spring.model.Dish;
 public class SessionUtil {
 	
 	public static String username;
-	public static int branchId = -1;
+	public static int branchId = 1000;
 	public static String branchAddress;
 	
 	public static List<Dish> cartList = new ArrayList<>();

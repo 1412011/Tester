@@ -113,20 +113,21 @@ public class HomeService {
         }
          public void init()
          {
-             return;
+             Dish dish = _dishService.getFullDishInfoById(1000);
+             SessionUtil._cartListhome.add(dish);
          }
        
          private void _addToCartProcessHome(Dish dish) {
-		for (int i = 0; i < SessionUtil.cartList.size(); i++) {
-			if (SessionUtil.cartList.get(i).getId() == dish.getId()) {
-				SessionUtil.cartList.get(i).setQuantity(SessionUtil.cartList.get(i).getQuantity() + 1);
+		for (int i = 0; i < SessionUtil._cartListhome.size(); i++) {
+			if (SessionUtil._cartListhome.get(i).getId() == dish.getId()) {
+				SessionUtil._cartListhome.get(i).setQuantity(SessionUtil._cartListhome.get(i).getQuantity() + 1);
 				return;
 			}
 		}
 		if(dish.getQuantity() == 0) {
 			dish.setQuantity(1);
 		}
-		SessionUtil.cartList.add(dish);
+		SessionUtil._cartListhome.add(dish);
 	}
 	
 	public int addToCartHome(int dishId) {
@@ -139,6 +140,7 @@ public class HomeService {
 		}
 		return 1;
 	}
+        
 	
         
 }

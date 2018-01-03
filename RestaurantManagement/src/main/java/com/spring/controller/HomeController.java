@@ -47,15 +47,22 @@ public class HomeController extends HomeService {
 //			modelMap.addAttribute("branchAddress", SessionUtil.branchAddress);
 //			modelMap.addAttribute("total", SessionUtil.getTotalDishInOrder());
 //	    }
-            List<Dish> listcarthome = (List<Dish>)request.getSession().getAttribute("listcart");
-            if(listcarthome == null)
+//            List<Dish> listcarthome = (List<Dish>)request.getSession().getAttribute("listcart");
+//            if(listcarthome == null)
+//            {
+//                listcarthome = new ArrayList<Dish>();
+//            }
+//            request.getSession().setAttribute("listcart", listcarthome);
+
+            if(SessionUtil._cartListhome == null)
             {
-                listcarthome = new ArrayList<Dish>();
+                SessionUtil._cartListhome = new ArrayList<Dish>();
             }
-            request.getSession().setAttribute("listcart", listcarthome);
+            init();
+            request.getSession().setAttribute("listcart", SessionUtil._cartListhome);
 	    //if(SessionUtil.branchId != -1)
             {
-                List<Dish> listDishOnBranch = getDishList_ON_Branch(1000);
+                List<Dish> listDishOnBranch = getDishList_ON_Branch(SessionUtil.branchId);
                 modelMap.addAttribute("listDishOnBranch", listDishOnBranch);
             }
 
@@ -164,7 +171,8 @@ public class HomeController extends HomeService {
         @RequestMapping(value = "/addToCarthome", method = RequestMethod.POST)
 	public void Addtocart(ModelMap modelMap, @RequestParam(value ="id") int id, HttpServletRequest request) {
             
-            
+            addToCartHome(id);
+            request.getSession().setAttribute("listcart", SessionUtil._cartListhome);
 	}
 	
 }
