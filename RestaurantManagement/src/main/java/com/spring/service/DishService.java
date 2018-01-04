@@ -11,4 +11,5 @@ public interface DishService {
 	List<Dish> getOrderedDishListByOrderId(int orderId);
 	List<Dish> getBestDishSellerListByBranchId(int branchId);
         List<Dish> getListDishOnBranch(int branch_id);
+//        List<String> getListNameDish(int id_branch);
 }

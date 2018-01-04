@@ -3,6 +3,7 @@ $(document).ready(function() {
 
     var mainHeader = $('.fm-main-header');
     
+
     
     // fixed top header when scroll page
     $(window).scroll(function() {
@@ -285,5 +286,21 @@ $(document).ready(function() {
                                 console.log(xhr.responseText);
                         }
                 });
+        });
+        
+        //    function autosearch(list){
+//        var names = list;
+//        $('#inputsearch').autocomplete({
+//            source: names
+//        });
+//    };
+        
+        $('#inputsearch').focus(function(){
+//           var itemsName=$(this).attr("data-info");
+            var itemsName=["dish 1","dish 2","dish 3","dish 4"];
+           console.log(itemsName);
+           $('#inputsearch').autocomplete({
+              source: itemsName 
+           });
         });
 });

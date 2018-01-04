@@ -10,8 +10,8 @@
                 <!--<a href="http://www.blog.freshmenu.com/" class="fm-top-bar-text" style='margin-left: 10px;'>-->
                     <!--Freshmenu Blog-->
                 <!--</a>-->
-                <a href="https://www.flipsnack.com/freshmenuindia/food-for-thought-issue-1.html" target="_blank" class="fm-top-bar-text" >
-                    Food for Thought <span class="highlight">New Issue</span>
+                <a href="orderbranch" target="_self" class="fm-top-bar-text" >
+                    Receive Oder <span class="highlight">New</span>
                 </a>
             </span>
             <!--End top bar left-->
@@ -63,12 +63,12 @@
                 </g>
             </g>
 
-            <div class="fm-top-bar-user-dropdown">
+<!--            <div class="fm-top-bar-user-dropdown">
                 <ul>
                     <li><a href="/profile" class="GTM_open_profile_button">Profile</a></li>
                     <li><a href="/past-orders">Past Orders</a></li>
                     <li><a href="#">Logout</a></li>
                 </ul>
-            </div>
+            </div>-->
         </div>
     </div>

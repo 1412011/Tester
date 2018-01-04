@@ -74,10 +74,14 @@ public class HomeController extends HomeService {
                 List<Dish> listDishOnBranch = getDishList_ON_Branch(SessionUtil.branchId);
                 modelMap.addAttribute("listDishOnBranch", listDishOnBranch);
                 request.getSession().setAttribute("idbranch", SessionUtil.branchId);
-                        
+                String listname = toJavascriptArray(listDishOnBranch);
+                request.getSession().setAttribute("listName",listname);
+                System.out.println(listname);
+                System.out.println(SessionUtil.branchId);
             }
-//            System.out.println(" controller homeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee !!!");
-
+            
+//           System.out.println(" controller homeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee !!!");
+//            System.out.println(SessionUtil.branchId);
 		return "home";
 	}
 	

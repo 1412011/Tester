@@ -38,7 +38,7 @@
         <!-- Search -->
         <div id="fm-search" align="right">   
             <form class="form-inline">
-                <input class="form-control mr-sm-2" id="inputsearch" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" id="inputsearch" data-info="${listName}" type="search" placeholder="Search" aria-label="Search">
               </form>
         </div>
         
@@ -244,7 +244,19 @@
                     <!--</div>-->
                 </div>
                 <button class="btn btn--red ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
-                    <span class="place-oder-btn">Place Order &nbsp; · &nbsp; $ ${totalpricehome}</span>
+                    <span class="place-oder-btn">Place Order Here &nbsp; · &nbsp; $ ${totalpricehome}</span>
+                    <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
+                </button>
+            </div>
+            <div class="proceed ng-hide" ng-show="cart.items.length">
+                <div class="free-items ng-hide" ng-show="cart.fi.length">
+                    <!-- ngRepeat: item in cart.fi -->
+                    <!--<div class="thank-you">-->
+                    <!--A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.-->
+                    <!--</div>-->
+                </div>
+                <button class="btn btn--grey ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
+                    <span class="place-oder-btn">Order Home &nbsp; · &nbsp; $ ${totalpricehome}</span>
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>
             </div>

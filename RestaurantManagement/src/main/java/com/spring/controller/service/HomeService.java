@@ -173,4 +173,20 @@ public class HomeService {
 	
 	}
         
+        public String toJavascriptArray(List<Dish> array){
+
+            String s="";
+            s+="[";
+            for(int i=0; i<array.size(); i++){
+                s+="\""; 
+                s+=array.get(i).getName(); 
+                s+="\"";
+                if(i+1 < array.size()){
+                    s+=",";
+                }
+            }
+            s+="]";
+            return s;
+        }
+        
 }

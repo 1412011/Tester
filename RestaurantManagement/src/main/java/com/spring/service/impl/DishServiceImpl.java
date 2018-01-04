@@ -133,4 +133,16 @@ public class DishServiceImpl implements DishService {
         return listDishOnBranch;
     }
 
+//    @Override
+//    public List<String> getListNameDish(int id_branch) {
+//            List<Object[]> listdish=_dishDao.(id_branch);
+//            List<String> listnameonbranch = new ArrayList<>();
+//            for(Object[] obj:listname){
+//                String dishName = String.valueOf(obj[0]);
+//                listnameonbranch.add(dishName);
+//            }
+//            return listnameonbranch;
+//    }
+
+    
 }
