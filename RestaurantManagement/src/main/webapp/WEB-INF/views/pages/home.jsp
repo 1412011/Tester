@@ -184,6 +184,7 @@
     <div class="overlay" ng-hide="isProductDetailsPopupOpened"></div>
     <div class="overlay" ng-hide="isProductDetailsPopupOpened"></div>
    
+    
     <!--cart menu side-->
     <section class="cart-side-menu ng-scope" ng-class="showCart ? 'cart-side-menu--open' : ''" style="">
         <div class="cart" ng-class="{'cart--limit-height': upsaleProducts.length}">

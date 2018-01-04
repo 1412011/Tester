@@ -188,6 +188,12 @@ $(document).ready(function() {
 
     $('.add').on('click', function(e)
     {
+         if ($('.cart-side-menu').hasClass('cart-side-menu--open')) {
+        } else {
+            $('.cart-side-menu').addClass('cart-side-menu--open');
+            $('.menu-page').addClass('menu-page--cart-open');
+        }
+        
         var id = $(this).data('id');
         $.ajax({
 		type : "POST",
@@ -214,6 +220,7 @@ $(document).ready(function() {
     });
     
     $('.decre-order-dish').on('click',function(){
+        
         var quantity = $('.items-quantity').val();
         var id = $(this).data('id');
         console.log(quantity);
@@ -227,6 +234,7 @@ $(document).ready(function() {
     });
     
     $('.incre-order-dish').on('click',function(){
+        
         var quantity = $('.items-quantity').val();
         var id = $(this).data('id');
         quantity = quantity + 1;
