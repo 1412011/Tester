@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url value="/" var="home" scope="application"></c:url>
 <div class="gradient fm-main-header ">
         <nav>
             <img style="height:60px;width:139px;cursor: pointer;" src="resources/images/header-logo.svg" alt="FreshMenu">
@@ -10,7 +11,15 @@
                                 <!-- ngIf: _getLocation() -->
                                 <div class="upperHeading ">Viewing Menu for</div>
                                 <!-- end ngIf: _getLocation() -->
-                                <div class="arrow"><span>Ditric 1, Ho Chi Minh City, VN</span></div>
+<!--                                <div class="arrow"><span>Ditric 1, Ho Chi Minh City, VN</span></div>-->
+                                    <div class="center-selected">
+                                        <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type">
+                                        <c:forEach var = "branches" items="${listbranch}">
+                                            <c:set var="idbranchselected" value="${idbranch}"/>
+                                            <option value="${branches.id}" <c:if test = "${branches.id == idbranchselected}">selected</c:if>>${branches.name}</option>
+                                        </c:forEach>
+                                        </select>
+                                      </div>
 
                             </div>
                         </div>
@@ -186,12 +195,13 @@
             </div>
             <div class="fm-delivery-fee-msg ng-binding" ng-class="{'fm-delivery-fee-msg--show': validation.message &amp;&amp; validation.message != ''}">
             </div>
-            <c:forEach var="items" items="${listcart}">
+           
 <!--            items-->
             <div class="items ng-hide" ng-show="cart.items.length">
+              <c:forEach var="items" items="${listcart}">
                 <!-- ngRepeat: item in cart.items -->
                 <div class="item ng-scope" ng-repeat="item in cart.items" style="">
-                    <div class="close">×</div>
+                    <div class="close" data-id="${items.id}">×</div>
                     <div class="cuisine-icon-border non-veg" ng-class="{'veg':  item.productDTO.categories[0].name == 'Veg', 'non-veg': item.productDTO.categories[0].name == 'Non Veg', 'egg': item.productDTO.categories[0].name == 'Contains Egg'}" style=" position: absolute;left: 0px;margin-top: 2px;">
                         <div class="cuisine-icon-dot">
                         </div>
@@ -201,23 +211,15 @@
                         Available only after 11:00AM
                     </div> -->
                     <!-- end ngIf: !checkTimings(item.productDTO.timings, true) -->
-                    <div ng-show="item.productDTO.addons.length" class="addons ng-hide">
+                    <div class="addons ng-hide">
                         <!-- ngRepeat: addon in item.productDTO.addons -->
                     </div>
                     <div class="actions">
                         <!-- -->
-                        <!-- ngIf: !item.productDTO.soldOut && checkTimings(item.productDTO.timings, true) && !kitchenClosed -->
-                        <!-- ngIf: !item.productDTO.soldOut && (!checkTimings(item.productDTO.timings, true) || kitchenClosed) -->
-                        <div class="button pre-order ng-scope" ng-disabled="item.productDTO.soldOut || (validation.cartErrorDTO.errorCode == '421' &amp;&amp; validation.cartErrorDTO.error[item.productId]) || menu.serviceability.serviceable == false" ng-if="!item.productDTO.soldOut &amp;&amp; (!checkTimings(item.productDTO.timings, true) || kitchenClosed)">
-                            <!-- ngIf: getProductQuantity(item.productDTO)>0 -->
-                            <div ng-if="getProductQuantity(item.productDTO)>0" ng-click="removeFromCart(item.productDTO,1);$event.stopPropagation();fireGAEvent('Menu', 'click', 'remove_from_cart')" class="ng-scope">-</div>
-                            <!-- end ngIf: getProductQuantity(item.productDTO)>0 -->
-                            <!-- ngIf: getProductQuantity(item.productDTO)>0 -->
-                            <div class="count ng-binding ng-scope" ng-if="getProductQuantity(item.productDTO)>0">${items.quantity}</div>
-                            <!-- end ngIf: getProductQuantity(item.productDTO)>0 -->
-                            <!-- ngIf: getProductQuantity(item.productDTO)>0 -->
-                            <div ng-if="getProductQuantity(item.productDTO)>0" ng-click="addToCart(item.productDTO,1);$event.stopPropagation();fireGAEvent('Menu', 'click', 'pre_order')" class="ng-scope">+</div>
-                            <!-- end ngIf: getProductQuantity(item.productDTO)>0 -->
+                        <div class="button pre-order ng-scope">
+                            <div class="decre-order-dish ng-scope" data-id="${items.id}">-</div>
+                            <div class="count ng-binding ng-scope"><span class="items-quantity">${items.quantity}</span></div>
+                            <div class="incre-oder-dish ng-scope" data-id="${items.id}">+</div>
                         </div>
                         <!-- end ngIf: !item.productDTO.soldOut && (!checkTimings(item.productDTO.timings, true) || kitchenClosed) -->
                         <span class="price">
@@ -228,8 +230,9 @@
                         </span>
                     </div>
                 </div>
+                           </c:forEach>
             </div>
-        </c:forEach>
+     
             <c:if test ="${not empty listcart}">
             <!-- Button Place order  -->
             <div class="proceed ng-hide" ng-show="cart.items.length">
@@ -239,8 +242,8 @@
                     <!--A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.-->
                     <!--</div>-->
                 </div>
-                <button ng-click="redirectToCheck($event); fireGAEvent(&quot;Cart&quot;, &quot;click&quot;, &quot;place_order&quot;, cart.paymentDetails.totalAmount)" class="btn btn--red ng-binding ng-hide" ng-show="cart.items.length" ng-disabled="cartHasSoldOutProducts() || redirectingToCheckout" ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
-                    Place Order &nbsp; · &nbsp; $ 400
+                <button class="btn btn--red ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
+                    <span class="place-oder-btn">Place Order &nbsp; · &nbsp; $ ${totalpricehome}</span>
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>
             </div>

@@ -49,7 +49,11 @@ public class HomeService {
 
 		return result;
 	}
-	
+	public List<Branch> getallbranchhome()
+        {
+            List<Branch> branches = _branchService.getAllBranch();
+            return branches;
+        }
 	public List<DishCategory> getAllCategoryAndDishByBranchId(int branchId) {
 		SessionUtil.branchAddress = _branchService.getBranchById(branchId).getAddress();
 		List<DishCategory> dishCategoryList = _branchService.getDishCategoryListByBranchId(branchId);
@@ -141,6 +145,32 @@ public class HomeService {
 		return 1;
 	}
         
+	public int getToTalPriceOnCart()
+        {
+            int total = 0;
+            for(Dish dish:SessionUtil._cartListhome)
+            {
+                total = total + (dish.getPrice()*dish.getQuantity());
+            }
+            return total;
+        }
+        
+        public void updateToCartSession(Map<String, String> dishMap) {
+		int dishId = Integer.valueOf(dishMap.get("dishId"));
+		int dishQuantity = Integer.valueOf(dishMap.get("dishQuantity"));
+		int dishIndex = -1;
+                System.out.println(dishQuantity);
+                System.out.println(dishId);
+		for (int i = 0; i < SessionUtil._cartListhome.size(); i++)
+			if (SessionUtil._cartListhome.get(i).getId() == dishId)
+                        {
+                            	if (dishQuantity > 0)
+                                    SessionUtil._cartListhome.get(dishIndex).setQuantity(dishQuantity);
+                                else
+                                     SessionUtil._cartListhome.remove(dishIndex);
+                                return;
+                        }
 	
+	}
         
 }

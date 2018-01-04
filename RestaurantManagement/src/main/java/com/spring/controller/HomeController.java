@@ -53,40 +53,64 @@ public class HomeController extends HomeService {
 //                listcarthome = new ArrayList<Dish>();
 //            }
 //            request.getSession().setAttribute("listcart", listcarthome);
-
             if(SessionUtil._cartListhome == null)
             {
                 SessionUtil._cartListhome = new ArrayList<Dish>();
             }
-            init();
+//            init();
             request.getSession().setAttribute("listcart", SessionUtil._cartListhome);
-	    //if(SessionUtil.branchId != -1)
+            modelMap.addAttribute("totalpricehome", getToTalPriceOnCart());
+          
+            List<Branch> branches = getallbranchhome();
+            if(branches != null)
+            {
+                if(SessionUtil.branchId == -1)
+                    SessionUtil.branchId = branches.get(0).getId();
+            }
+            request.getSession().setAttribute("listbranch", branches);
+            
+	    if(SessionUtil.branchId != -1)
             {
                 List<Dish> listDishOnBranch = getDishList_ON_Branch(SessionUtil.branchId);
                 modelMap.addAttribute("listDishOnBranch", listDishOnBranch);
+                request.getSession().setAttribute("idbranch", SessionUtil.branchId);
+                        
             }
+//            System.out.println(" controller homeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee !!!");
 
 		return "home";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String getPages(ModelMap modelMap, @RequestParam("branchId") String branchId) {
-		//System.out.println("post");
-		int iBranchId = Integer.valueOf(branchId);
-		//SessionUtil.storeBranchInfo(iBranchId);
-		SessionUtil.branchId = iBranchId;
-		if(iBranchId != SessionUtil.branchId) {
-			SessionUtil.cartList = new ArrayList<>();
-		}
-		//List<DishCategory> dishCategoryList = getAllCategoryAndDishByBranchId(iBranchId);
-
-//		List<Dish> listBestDishSeller = getBestDishSellerList(); 
-//		//System.out.println(SessionUtil.branchAddress);
-//		modelMap.addAttribute("dishCategoryList", dishCategoryList);
-//		modelMap.addAttribute("branchAddress", SessionUtil.branchAddress);
+//	@RequestMapping(value = "/", method = RequestMethod.POST)
+//	public String getPages(ModelMap modelMap, @RequestParam("branchId") String branchId) {
+//		//System.out.println("post");
+//		int iBranchId = Integer.valueOf(branchId);
+//		//SessionUtil.storeBranchInfo(iBranchId);
+//		SessionUtil.branchId = iBranchId;
+//		if(iBranchId != SessionUtil.branchId) {
+//			SessionUtil.cartList = new ArrayList<>();
+//		}
+//		//List<DishCategory> dishCategoryList = getAllCategoryAndDishByBranchId(iBranchId);
+//
+////		List<Dish> listBestDishSeller = getBestDishSellerList(); 
+////		//System.out.println(SessionUtil.branchAddress);
+////		modelMap.addAttribute("dishCategoryList", dishCategoryList);
+////		modelMap.addAttribute("branchAddress", SessionUtil.branchAddress);
+////		
+////	    modelMap.addAttribute("listBestDishSeller", listBestDishSeller);
 //		
-//	    modelMap.addAttribute("listBestDishSeller", listBestDishSeller);
-		
+//		return "redirect:/";
+//	}
+        @RequestMapping(value = "/BranchHome", method = RequestMethod.POST)
+	public String getBranch(ModelMap modelMap, @RequestParam(value = "id") int branchId, HttpServletRequest request) {
+		//System.out.println("post");
+
+		//SessionUtil.storeBranchInfo(iBranchId);
+		SessionUtil.branchId = branchId;
+		if(branchId != SessionUtil.branchId) {
+			SessionUtil._cartListhome = new ArrayList<>();
+		}
+
 		return "redirect:/";
 	}
 
@@ -173,6 +197,19 @@ public class HomeController extends HomeService {
             
             addToCartHome(id);
             request.getSession().setAttribute("listcart", SessionUtil._cartListhome);
+
+	}
+        
+        @ResponseBody
+        @RequestMapping(value = "/updateToCarthome", method = RequestMethod.POST)
+	public Map<String,String> UpdateToCart(ModelMap modelMap, @RequestBody Map<String,String> dishMap, HttpServletRequest request) {
+            
+            Map<String, String> hmResult = new HashMap<>();
+            updateToCartSession(dishMap);
+            hmResult.put("totalprice",String.valueOf(getToTalPriceOnCart()));
+            request.getSession().setAttribute("listcart", SessionUtil._cartListhome);
+            return hmResult;
 	}
 	
+        
 }

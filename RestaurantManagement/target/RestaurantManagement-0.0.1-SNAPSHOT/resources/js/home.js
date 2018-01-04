@@ -2,7 +2,8 @@
 $(document).ready(function() {
 
     var mainHeader = $('.fm-main-header');
-
+    
+    
     // fixed top header when scroll page
     $(window).scroll(function() {
 
@@ -193,11 +194,88 @@ $(document).ready(function() {
 		url : "addToCarthome?id=" + id,
 		success : function(data) {
 			console.log(data);
+                        
 		},
 		error : function(xhr, status, error) {
 			console.log(xhr.responseText);
 		},
-	})
+                done : function(){
+                    window.location.reload();
+                }
+	});
     });
+    
+    $('.close').on('click', function(){
+        var id = $(this).data('id');
+        $(this).parent('.item').remove();
 
+        var quantity = 0;
+        sendUpdateCartItems_session(id,quantity);
+    });
+    
+    $('.decre-order-dish').on('click',function(){
+        var quantity = $('.items-quantity').val();
+        var id = $(this).data('id');
+        console.log(quantity);
+        if(quantity>1)
+        {
+            quantity = quantity - 1;
+            $('.items-quantity').text(quantity);
+            //updatetocart
+            sendUpdateCartItems_session(id,quantity);
+        }
+    });
+    
+    $('.incre-order-dish').on('click',function(){
+        var quantity = $('.items-quantity').val();
+        var id = $(this).data('id');
+        quantity = quantity + 1;
+        console.log(quantity);
+        $('.items-quantity').text(quantity);
+        //updatetocart
+        sendUpdateCartItems_session(id,quantity);
+    });
+    
+    function sendUpdateCartItems_session(id, quantity) {
+        
+        console.log(quantity);
+        console.log(id);
+        
+		$.ajax({
+                        type : 'POST',
+			contentType : 'application/json',
+			url :'updateToCarthome',
+			dataType : 'json',
+			timeout : 100000,
+			data: JSON.stringify({ 
+				dishId: id,
+				dishQuantity: quantity
+			}),
+			success : function(response) {
+				console.log(JSON.stringify(response));
+				$('.place-oder-btn').text(response.totalprice);
+			},
+			error : function(e) {
+				console.log('ERROR: ', e);
+			},
+			done : function(e) {
+				console.log('DONE: ', e);
+			}
+                });
+	};
+        
+        $('#sources').change(function(){
+        var id=$(this).val();
+        console.log(id);
+        $.ajax({
+                        type : "POST",
+                        url : "BranchHome?id=" + id,
+                        success : function(data) {
+                                console.log(data);
+                        },
+                        error : function(xhr, status, error) {
+                                console.log(xhr.responseText);
+                        }
+                });
+        });
 });
