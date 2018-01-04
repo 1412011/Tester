@@ -11,8 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title><tiles:insertAttribute name="title" /></title>
 
-    <tiles:insertAttribute name="boostrapmincss" />
-    <link rel="stylesheet" href="resources/css/home.css">
+
+
+    <link href="resources/css/home.css" rel="stylesheet" />
 
     <!-- MetisMenu CSS -->
     <link href="resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -28,8 +29,7 @@
 
     <!-- Custom Fonts -->
     <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
+    
 </head>
 
 <body class="menu-page" id="mainController">
@@ -48,10 +48,13 @@
                 <!-- Include all compiled plugins (below), or include individual files as needed -->
                 <script src="resources/js/bootstrap.js"></script>
                 <script src="resources/js/home.js"></script>
-              
+
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
                 <!-- Metis Menu Plugin JavaScript -->
-                <script src="resources/vendor/metisMenu/metisMenu.min.js"></script>
+                <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
                 <!-- DataTables JavaScript -->
                 <script src="resources/vendor/datatables/js/jquery.dataTables.min.js"></script>
@@ -69,5 +72,6 @@
                     });
                 });
                 </script>
+
 </body>
 </html>

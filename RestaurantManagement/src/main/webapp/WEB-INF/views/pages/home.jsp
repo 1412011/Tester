@@ -38,7 +38,7 @@
         <!-- Search -->
         <div id="fm-search" align="right">   
             <form class="form-inline">
-                <input class="form-control mr-sm-2" id="inputsearch" data-info="${listName}" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" id="inputsearch" data-info="" type="search" placeholder="Search" aria-label="Search">
               </form>
         </div>
         

@@ -13,16 +13,14 @@
         
         <definition name="home" extends="base-definition">
 		<put-attribute name="title" value="HOME"></put-attribute>
-                 <put-attribute name="boostrapmincss"
-			value="/WEB-INF/views/pages/bootstrap_min_css.jsp"></put-attribute>
+                 
 		<put-attribute name="body"
 			value="/WEB-INF/views/pages/home.jsp"></put-attribute>
+                
 	</definition>
         
          <definition name="orderbranch" extends="base-definition">
 		<put-attribute name="title" value="ORDER BRANCH"></put-attribute>
-                 <put-attribute name="boostrapmincss"
-			value="/WEB-INF/views/pages/bootstrap_min_css.jsp"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/pages/orderbranch.jsp"></put-attribute>
                

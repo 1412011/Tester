@@ -1,7 +1,7 @@
     <div class="fm-top-bar">
         <div class="fm-top-bar-inner-container">
             <span class="fm-top-bar-left">
-                <a href="/corporate" class="fm-top-bar-text fm-common-padding">
+                <a href="#" class="fm-top-bar-text fm-common-padding">
                     Cost in days
                 </a>
                 <a href="#" class="toggle-modal-download-app fm-top-bar-text" style="margin-right: 10px;">
@@ -12,6 +12,9 @@
                 <!--</a>-->
                 <a href="orderbranch" target="_self" class="fm-top-bar-text" >
                     Receive Oder <span class="highlight">New</span>
+                </a>
+                <a href="${pageContext.request.contextPath}" target="_self" class="fm-top-bar-text" >
+                    Home branch
                 </a>
             </span>
             <!--End top bar left-->

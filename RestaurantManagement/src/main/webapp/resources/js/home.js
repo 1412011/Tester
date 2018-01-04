@@ -295,12 +295,12 @@ $(document).ready(function() {
 //        });
 //    };
         
-        $('#inputsearch').focus(function(){
-//           var itemsName=$(this).attr("data-info");
-            var itemsName=["dish 1","dish 2","dish 3","dish 4"];
-           console.log(itemsName);
-           $('#inputsearch').autocomplete({
-              source: itemsName 
-           });
-        });
+//        $('#inputsearch').focus(function(){
+////           var itemsName=$(this).attr("data-info");
+//            var itemsName=["dish 1","dish 2","dish 3","dish 4"];
+//           console.log(itemsName);
+//           $('#inputsearch').autocomplete({
+//              source: itemsName 
+//           });
+//        });
 });
