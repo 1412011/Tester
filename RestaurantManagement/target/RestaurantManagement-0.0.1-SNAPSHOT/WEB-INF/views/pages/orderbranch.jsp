@@ -15,7 +15,7 @@
                                 <thead>
                                     <tr>
                                         <th>Order_id</th>
-                                        <th>Order_status</th>
+                                        <th>Status</th>
                                         <th>Dish / quantity</th>
                                         <th>Name Client</th>
                                         <th>Phone Client</th>
@@ -30,8 +30,8 @@
                                         
                                     <tr>
                                         <td style="width: 5%;">${orders.id}</td>
-                                        <td style="width: 10%;">${orders.status}</td>
-                                        <td style="width: 35%;">
+                                        <td style="width: 5%;">${orders.status}</td>
+                                        <td style="width: 30%;">
                                             <table class="" id="dish-quantity" style="width:100%">
                                                 <c:forEach var="dishes" items="${orders.listDish}">
                                                     <tr>
@@ -43,8 +43,8 @@
                                         </td>
                                         <td style="width: 10%;">${orders.client.name}</td>
                                         <td style="width: 10%;">${orders.client.phone}</td>
-                                        <td style="width: 15%;">${orders.client.address}</td>
-                                        <td style="width: 10%;">${orders.deliveryAddress}</td>
+                                        <td style="width: 30%;">${orders.deliveryAddress}</td>
+                                        <td style="width: 5%;">${orders.dateDelivery}</td>
                                         <td style="width: 5%;"><input type="submit" value="submit"/></td>
                                     </tr>
                                     
