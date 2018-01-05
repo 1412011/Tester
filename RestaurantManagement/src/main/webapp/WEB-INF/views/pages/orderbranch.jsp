@@ -45,7 +45,9 @@
                                         <td style="width: 10%;">${orders.client.phone}</td>
                                         <td style="width: 30%;">${orders.deliveryAddress}</td>
                                         <td style="width: 5%;">${orders.dateDelivery}</td>
-                                        <td style="width: 5%;"><input type="submit" value="submit"/></td>
+                                        <td style="width: 5%;">
+                                            <input type="submit" value="submit" data-id="${orders.id}" class="submit-order"/>
+                                        </td>
                                     </tr>
                                     
                                     </c:forEach>

@@ -327,8 +327,15 @@ $(document).ready(function() {
         $('#inputsearch').keyup(function(){
              var txtSearch = $('#inputsearch').val();
              //alert(txtSearch);
-             //window.location.href = "Search?key="+txtSearch;
+            // window.location.href = "Search?key="+txtSearch;
         });
+        
+        $('.submit-order').on('click', function(){
+            var id = $(this).data('id');
+//            id=id+1;
+//            alert(id+1);
+        window.location.href="orderbranch/submit?id=" + id;
+         });
 });
 
     function closeCart()
@@ -337,4 +344,11 @@ $(document).ready(function() {
             $('.cart-side-menu').removeClass('cart-side-menu--open');
             $('.menu-page').removeClass('menu-page--cart-open');
         }
+    };
+    function handle(e){
+        if(e.keyCode === 13){
+            alert("Enter was just pressed.");
+        }
+
+        return false;
     };

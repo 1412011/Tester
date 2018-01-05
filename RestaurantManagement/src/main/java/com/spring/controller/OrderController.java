@@ -5,6 +5,7 @@
  */
 package com.spring.controller;
 
+import com.spring.controller.service.OrderBranchService;
 import com.spring.model.Dish;
 import com.spring.model.Order;
 import com.spring.service.OrderService;
@@ -16,13 +17,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
  * @author HOANG ANH
  */
 @Controller
-public class OrderController {
+public class OrderController extends OrderBranchService{
     
     @Autowired
     OrderService _orderService;
@@ -38,5 +40,14 @@ public class OrderController {
         }
 
         return "orderbranch";
+    }
+    
+    
+    @RequestMapping(value="/orderbranch/submit", method = RequestMethod.GET)
+    public String submitOrder(ModelMap model, @RequestParam(value = "id") int idOrder)
+    {
+        UpdateOrder_Status(idOrder);
+
+        return "redirect:/orderbranch";
     }
 }

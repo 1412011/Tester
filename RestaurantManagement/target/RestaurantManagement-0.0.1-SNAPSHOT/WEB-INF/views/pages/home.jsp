@@ -2,7 +2,7 @@
 <c:url value="/" var="home" scope="application"></c:url>
 <div class="gradient fm-main-header ">
         <nav>
-            <img style="height:60px;width:139px;cursor: pointer;" src="resources/images/header-logo.svg" alt="FreshMenu">
+            <a href="${pageContext.request.contextPath}"><img style="height:60px;width:139px;cursor: pointer;" src="resources/images/header-logo.svg" alt="FreshMenu"></a>
             <ul style="justify-content: flex-start;">
                 <li class="fm-header-location-view-menu" style="display: table;">
                     <div class="ng-isolate-scope">
@@ -37,10 +37,9 @@
             </div>
         </nav>
 
-        <!-- Search -->
         <div id="fm-search" align="right">   
             <form class="form-inline">
-                <input class="form-control mr-sm-2" id="inputsearch" data-info="" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" id="inputsearch" onkeyup="handle()" data-info="" type="search" placeholder="Search" aria-label="Search">
               </form>
         </div>
         

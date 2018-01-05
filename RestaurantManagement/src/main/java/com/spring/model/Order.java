@@ -73,6 +73,9 @@ public class Order {
         this.listDish = listDish;
     }
 
+    public Order() {
+    }
+
         
         public Branch getBranch() {
             return branch;

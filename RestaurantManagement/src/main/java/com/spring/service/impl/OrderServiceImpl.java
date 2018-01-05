@@ -98,4 +98,18 @@ public class OrderServiceImpl implements OrderService {
             return listOrderBranch;
         }
 
+    @Override
+    public void changeAndSaveStatusOrder(int idOrder) {
+        Order order = _orderDao.getBykey(idOrder);
+        
+        if(order == null)return;
+        
+        int status = order.getStatus();
+        if(status >=0 && status <4) status++;
+        order.setStatus(status);
+        
+        _orderDao.saveOrder(order);
+    }
+
+
 }

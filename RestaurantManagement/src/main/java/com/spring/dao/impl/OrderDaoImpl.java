@@ -37,6 +37,11 @@ public class OrderDaoImpl extends AbstractDao<Integer, Order> implements OrderDa
         List<Object[]> listOrder = query.list();
         return listOrder;
     }
+
+    @Override
+    public Order getBykey(int key) {
+        return getByKey(key);
+    }
         
         
 

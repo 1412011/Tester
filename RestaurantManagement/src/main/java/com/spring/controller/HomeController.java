@@ -123,11 +123,13 @@ public class HomeController extends HomeService {
 		//System.out.println("post");
 
 		//SessionUtil.storeBranchInfo(iBranchId);
-            
+//            System.err.println(key);
             if(SessionUtil.branchId != -1)
             {
-                SessionUtil._cartListhome=getListDishSearch(SessionUtil.branchId, key);
-                
+
+                List<Dish> listDishOnBranch = getListDishSearch(SessionUtil.branchId, key);
+                modelMap.addAttribute("listDishOnBranch", listDishOnBranch);
+               // modelMap.addAttribute("keyword", key);
             }
 
 		return "redirect:/";
