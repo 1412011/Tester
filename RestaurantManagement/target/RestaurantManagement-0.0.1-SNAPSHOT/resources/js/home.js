@@ -227,27 +227,32 @@ $(document).ready(function() {
         sendUpdateCartItems_session(id,quantity);
     });
     
-    $('.decre-order-dish').on('click',function(){
-        console.log("decre-order-dish PRESS");
-        var quantity = $('.items-quantity').val();
+    $('.button-decre').on('click',function(){
+        
         var id = $(this).data('id');
+        var textquantity = $('.button-quantity-'.concat(id.toString())).html();
+        var quantity = parseInt(textquantity);
+       
         console.log(quantity);
         if(quantity>1)
         {
             quantity = quantity - 1;
-            $('.items-quantity').text(quantity);
+           $('.button-quantity-'.concat(id.toString())).html(quantity);
             //updatetocart
             sendUpdateCartItems_session(id,quantity);
         }
     });
     
-    $('.incre-order-dish').on('click',function(){
-        console.log("incre-order-dish PRESS");
-        var quantity = $('.items-quantity').val();
+    $('.button-incre').on('click',function(){
+        
         var id = $(this).data('id');
+        var textquantity = $('.button-quantity-'.concat(id.toString())).html();
+        var quantity = parseInt(textquantity);
+        
+        
         quantity = quantity + 1;
         console.log(quantity);
-        $('.items-quantity').text(quantity);
+        $('.button-quantity-'.concat(id.toString())).html(quantity);
         //updatetocart
         sendUpdateCartItems_session(id,quantity);
     });

@@ -221,10 +221,14 @@
                     </div>
                     <div class="actions">
                         <!-- -->
-                        <div class="button pre-order ng-scope">
-                            <div class="decre-order-dish ng-scope" data-id="${items.id}">-</div>
+                        <div class="button pre-order-- ng-scope">
+<!--                            <div class="decre-order-dish ng-scope" data-id="${items.id}">-</div>
                             <div class="count ng-binding ng-scope"><span class="items-quantity">${items.quantity}</span></div>
-                            <div class="incre-oder-dish ng-scope" data-id="${items.id}">+</div>
+                            <div class="incre-oder-dish ng-scope" data-id="${items.id}">+</div>-->
+                            
+                            <button class="button-pre button-decre" data-id="${items.id}">-</button>
+                            <button class="button-pre button-quantity-${items.id}" disabled >${items.quantity}</button>
+                            <button class="button-pre button-incre" data-id="${items.id}">+</button>
                         </div>
                         <!-- end ngIf: !item.productDTO.soldOut && (!checkTimings(item.productDTO.timings, true) || kitchenClosed) -->
                         <span class="price">
