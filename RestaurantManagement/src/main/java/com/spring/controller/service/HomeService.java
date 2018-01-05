@@ -162,15 +162,16 @@ public class HomeService {
                 System.out.println(dishQuantity);
                 System.out.println(dishId);
 		for (int i = 0; i < SessionUtil._cartListhome.size(); i++)
-			if (SessionUtil._cartListhome.get(i).getId() == dishId)
+                {
+                    if (SessionUtil._cartListhome.get(i).getId() == dishId)
                         {
                             	if (dishQuantity > 0)
-                                    SessionUtil._cartListhome.get(dishIndex).setQuantity(dishQuantity);
+                                    SessionUtil._cartListhome.get(i).setQuantity(dishQuantity);
                                 else
-                                     SessionUtil._cartListhome.remove(dishIndex);
+                                     SessionUtil._cartListhome.remove(i);
                                 return;
                         }
-	
+                }
 	}
         
         public String toJavascriptArray(List<Dish> array){

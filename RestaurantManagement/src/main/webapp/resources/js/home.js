@@ -224,6 +224,7 @@ $(document).ready(function() {
         $(this).parent('.item').remove();
 
         var quantity = 0;
+        
         sendUpdateCartItems_session(id,quantity);
     });
     
@@ -274,7 +275,8 @@ $(document).ready(function() {
 			}),
 			success : function(response) {
 				console.log(JSON.stringify(response));
-				$('.place-oder-btn').text(response.totalprice);
+				$('#span-total-here').text(response.totalprice);
+                                $('#span-total-home').text(response.totalprice);
 			},
 			error : function(e) {
 				console.log('ERROR: ', e);

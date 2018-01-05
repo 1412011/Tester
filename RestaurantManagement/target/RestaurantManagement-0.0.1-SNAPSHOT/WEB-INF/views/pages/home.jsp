@@ -245,26 +245,26 @@
             <c:if test ="${not empty listcart}">
             <!-- Button Place order  -->
             <div class="proceed ng-hide" ng-show="cart.items.length">
-                <div class="free-items ng-hide" ng-show="cart.fi.length">
-                    <!-- ngRepeat: item in cart.fi -->
-                    <!--<div class="thank-you">-->
-                    <!--A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.-->
-                    <!--</div>-->
-                </div>
+<!--                <div class="free-items ng-hide" ng-show="cart.fi.length">
+                     ngRepeat: item in cart.fi 
+                    <div class="thank-you">
+                    A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.
+                    </div>
+                </div>-->
                 <button class="btn btn--red ng-binding ng-hide" ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
-                    <span class="place-oder-btn">Order Here &nbsp; · &nbsp; $ ${totalpricehome}</span>
+                    <span class="place-oder-btn">Order Here &nbsp; · &nbsp; $ <span id ="span-total-here">${totalpricehome}</span></span>
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>
             </div>
             <div class="proceed ng-hide" >
-                <div class="free-items ng-hide" >
-                    <!-- ngRepeat: item in cart.fi -->
-                    <!--<div class="thank-you">-->
-                    <!--A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.-->
-                    <!--</div>-->
-                </div>
-                <button class="btn btn--grey ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
-                    <span class="place-oder-btn">Order Home &nbsp; · &nbsp; $ ${totalpricehome}</span>
+<!--                <div class="free-items ng-hide" >
+                     ngRepeat: item in cart.fi 
+                    <div class="thank-you">
+                    A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.
+                    </div>
+                </div>-->
+                <button class="btn btn--red ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
+                    <span class="place-oder-btn">Order Home &nbsp; · &nbsp; $ <span id ="span-total-home">${totalpricehome}</span></span>
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>
             </div>
