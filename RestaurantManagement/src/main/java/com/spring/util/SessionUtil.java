@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.spring.model.Dish;
+import com.spring.model.Order;
 
 public class SessionUtil {
 	
@@ -13,7 +14,8 @@ public class SessionUtil {
 	
 	public static List<Dish> cartList = new ArrayList<>();
         public static List<Dish> _cartListhome = new ArrayList<>();
-	
+
+        
 	public static int getTotalDishInOrder() {
 		int total = 0;
 		for(Dish dish : SessionUtil.cartList) {

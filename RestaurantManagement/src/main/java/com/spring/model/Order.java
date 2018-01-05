@@ -8,8 +8,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
@@ -43,6 +46,51 @@ public class Order {
 	@OneToMany(targetEntity=Dish.class, mappedBy="id", fetch=FetchType.EAGER)
 	private List<Dish> listDish;
 	
+        
+	@Column(name = "branch_id")
+	private int branchId;
+	
+	@Column(name = "client_id")
+	private int clientId;
+	
+	@Column(name = "delivery_address")
+	private String deliveryAddress;
+        
+        @Transient
+        private Branch branch;
+        @Transient
+        private Client client;
+
+    public Order(int id, int status, DateTime dateApprove, DateTime dateDelivery, int type, String deliveryAddress, Branch branch, Client client, List<Dish> listDish) {
+        this.id = id;
+        this.status = status;
+        this.dateApprove = dateApprove;
+        this.dateDelivery = dateDelivery;
+        this.type = type;
+        this.deliveryAddress = deliveryAddress;
+        this.branch = branch;
+        this.client = client;
+        this.listDish = listDish;
+    }
+
+        
+        public Branch getBranch() {
+            return branch;
+        }
+
+        public Client getClient() {
+            return client;
+        }
+
+        public void setBranch(Branch branch) {
+            this.branch = branch;
+        }
+
+        public void setClient(Client client) {
+            this.client = client;
+        }
+
+        
 	public List<Dish> getListDish() {
 		return listDish;
 	}
@@ -140,14 +188,6 @@ public class Order {
 		this.deliveryAddress = deliveryAddress;
 	}
 
-	@Column(name = "branch_id")
-	private int branchId;
-	
-	@Column(name = "client_id")
-	private int clientId;
-	
-	@Column(name = "delivery_address")
-	private String deliveryAddress;
 	
 	
 }

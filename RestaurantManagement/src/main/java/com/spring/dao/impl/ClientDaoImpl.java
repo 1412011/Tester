@@ -26,5 +26,10 @@ public class ClientDaoImpl extends AbstractDao<Integer, Client> implements Clien
 		return client;
 	}
 
+    @Override
+    public Client getClientById(int id) {
+        return getByKey(id);
+    }
+
 	
 }

@@ -164,5 +164,23 @@ public class DishServiceImpl implements DishService {
         return listDishSearch;
     }
 
+    @Override
+    public List<Dish> getListDishOrder(int idorder, int branchid) {
+        List<Object[]> listDish = _dishDao.getListDishByBranchAndOrder(idorder);
+        List<Dish> listDishOrder = new ArrayList<>();
+        for(Object[] dishObj: listDish)
+        {
+                int dishId = Integer.parseInt(String.valueOf(dishObj[0]));
+		String dishName = String.valueOf(dishObj[1]);
+                int amount = Integer.parseInt(String.valueOf(dishObj[2]));
+		int dishPrice = _dishDao.getPriceByDishId(dishId, branchid);
+                
+                Dish dish = new Dish(dishId,dishName,dishPrice,amount);
+                listDishOrder.add(dish);
+        }
+        
+        return listDishOrder;
+    }
+
     
 }

@@ -13,4 +13,5 @@ public interface DishService {
         List<Dish> getListDishOnBranch(int branch_id);
 //        List<String> getListNameDish(int id_branch);
         List<Dish> getListDishSearch(int idbranch, String key);
+        List<Dish> getListDishOrder(int idorder, int branchid);
 }

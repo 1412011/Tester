@@ -64,6 +64,7 @@ public class Dish {
 	public Dish() {
 		
 	}
+
 	
 	public Dish(int id, String name, String description, String image, int categoryId, int price) {
 		this.id = id;

@@ -29,4 +29,15 @@ public class OrderDaoImpl extends AbstractDao<Integer, Order> implements OrderDa
 		return orderedList;
 	}
 
+    @Override
+    public List<Object[]> getListOrderFromCS(int idbranch) {
+        String sql = "select * from orders od where od.branch_id=:idbranch and od.delete_flag=0 and od.order_status=1";
+        SQLQuery query = getSession().createSQLQuery(sql);
+        query.setInteger("idbranch", idbranch);
+        List<Object[]> listOrder = query.list();
+        return listOrder;
+    }
+        
+        
+
 }

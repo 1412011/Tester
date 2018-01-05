@@ -7,4 +7,6 @@ import com.spring.model.Order;
 public interface OrderService {
 	void saveOrder(Order order);
 	List<Order> getOrderedListByUsername(String username);
+        List<Order> getFullListOrderFromCS(int idbranch);
+        
 }
