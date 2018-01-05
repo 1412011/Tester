@@ -12,7 +12,7 @@ public class OrderDishDaoImpl extends AbstractDao<Integer, OrderDish> implements
 	@Override
 	public void saveOrderDish(OrderDish orderDish) {
 		// TODO Auto-generated method stub
-		persist(orderDish);
+		getSession().persist(orderDish);
 	}
 
 }

@@ -12,14 +12,21 @@ import com.spring.model.Branch;
 import com.spring.model.Client;
 import com.spring.model.Dish;
 import com.spring.model.DishCategory;
+import com.spring.model.Order;
+import com.spring.model.OrderDish;
 import com.spring.model.User;
 import com.spring.model.UserRole;
 import com.spring.service.BranchService;
 import com.spring.service.ClientService;
 import com.spring.service.DishService;
+import com.spring.service.OrderDishService;
+import com.spring.service.OrderService;
 import com.spring.service.UserRoleService;
 import com.spring.service.UserService;
 import com.spring.util.SessionUtil;
+import java.util.Date;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 
 
 public class HomeService {
@@ -35,8 +42,11 @@ public class HomeService {
 	private UserRoleService _userRoleService;
 	@Autowired
 	private PasswordEncoder _passwordEncoder;
-	
-
+	@Autowired
+        private OrderService _orderService;
+        @Autowired
+        private OrderDishService _orderDishService;
+        
 	public List<Branch> getAllBranch(String addressInput) {
 		List<Branch> branches = _branchService.getAllBranch();
 		List<Branch> result = new ArrayList<>();
@@ -195,5 +205,43 @@ public class HomeService {
             return s;
         }
         
+        public String getCurrentDate()
+        {
+            Date dt = new Date();
+
+            java.text.SimpleDateFormat sdf = 
+                 new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+            return sdf.format(dt);
+        }
         
+        public void SaveOrder(int type)
+        {
+            int statushome = 4; // finish
+            int statushere = 2; // Cooking
+            
+            String date = getCurrentDate();
+            int orderType = 0 ;// at table - finish
+            int delete = 0;
+            int branchId = SessionUtil.branchId;
+            int clientId = 1000; //defauls because dont hava info client
+            String address = "null";
+            
+            Order ordernew;
+            if(type == 1)
+            {
+                ordernew=new Order(statushome,DateTime.now(DateTimeZone.UTC),DateTime.now(DateTimeZone.UTC),orderType,delete,address,branchId,clientId);
+            }else
+            {
+                ordernew=new Order(statushere,DateTime.now(),DateTime.now(),orderType,delete,address,branchId,clientId);
+            }
+            int key = _orderService.InsertOrder(ordernew);
+
+            for(int i=0;i<SessionUtil._cartListhome.size();i++)
+            {
+                OrderDish od = new OrderDish(key,SessionUtil._cartListhome.get(i).getId() , SessionUtil._cartListhome.get(i).getQuantity());
+
+                _orderDishService.saveOrderDish(od);
+            }
+        }
 }

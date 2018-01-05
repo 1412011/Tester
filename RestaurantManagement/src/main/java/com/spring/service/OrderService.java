@@ -9,4 +9,5 @@ public interface OrderService {
 	List<Order> getOrderedListByUsername(String username);
         List<Order> getFullListOrderFromCS(int idbranch);
         void changeAndSaveStatusOrder(int idOrder);
+        int InsertOrder(Order or);
 }

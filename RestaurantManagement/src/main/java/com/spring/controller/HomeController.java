@@ -23,7 +23,9 @@ import com.spring.controller.service.HomeService;
 import com.spring.model.Branch;
 import com.spring.model.Dish;
 import com.spring.model.DishCategory;
+import com.spring.model.Order;
 import com.spring.util.SessionUtil;
+import org.joda.time.DateTime;
 
 @Controller
 public class HomeController extends HomeService {
@@ -233,5 +235,11 @@ public class HomeController extends HomeService {
             return hmResult;
 	}
 	
-        
+        @RequestMapping(value = "/CheckOutCart", method = RequestMethod.GET)
+	public String Update_CheckoutCart(ModelMap modelMap, @RequestParam(value ="Type") int type) {
+            
+            SaveOrder(type);
+            SessionUtil._cartListhome.clear();
+            return "redirect:/";
+	}
 }

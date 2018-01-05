@@ -336,6 +336,63 @@ $(document).ready(function() {
 //            alert(id+1);
         window.location.href="orderbranch/submit?id=" + id;
          });
+         
+         $('.btn-order-home').on('click', function(){
+            var type = 1;
+            var priceCart = $('#span-total-home').text();
+            var price = parseInt(priceCart);
+            if(price >0)
+            {
+                alert("Bill for order home is printing :".concat(priceCart)) ;
+                window.location.href="CheckOutCart?Type=" + type;
+//                $.ajax({
+//                        type : 'POST',
+//			contentType : 'application/json',
+//			url :'CheckOutCart?Type=' + type,
+//                        
+//                        success : function(data) {
+//                                console.log(data);
+//                        },
+//                        error : function(xhr, status, error) {
+//                                console.log(xhr.responseText);
+//                        },
+//                        done : function(e) {
+//				console.log('DONE: ', e);
+//			}
+//                });
+            }
+            
+            
+         });
+         
+         $('.btn-order-here').on('click', function(){
+            var type = 2;
+            var priceCart = $('#span-total-home').text();
+            var price = parseInt(priceCart);
+            if(price >0)
+            {
+                alert("Bill for order HERE is printing :".concat(priceCart)) ;
+                window.location.href="CheckOutCart?Type=" + type;
+//                $.ajax({
+//                        type : 'POST',
+//			contentType : 'application/json',
+//			url :'CheckOutCart?Type=' + type,
+//                        
+//                        success : function(data) {
+//                                console.log(data);
+//                        },
+//                        error : function(xhr, status, error) {
+//                                console.log(xhr.responseText);
+//                        },
+//                        done : function(e) {
+//				console.log('DONE: ', e);
+//			}
+//                });
+            }
+            
+            
+         });
+         
 });
 
     function closeCart()

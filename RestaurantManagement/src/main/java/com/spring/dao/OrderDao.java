@@ -10,4 +10,5 @@ public interface OrderDao {
 	List<Object[]> getOrderedListByUsername(String username);
         List<Object[]> getListOrderFromCS(int idbranch);
         Order getBykey(int key);
+        int InsertOrder(Order or);
 }

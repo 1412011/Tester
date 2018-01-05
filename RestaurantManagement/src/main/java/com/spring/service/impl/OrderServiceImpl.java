@@ -111,5 +111,10 @@ public class OrderServiceImpl implements OrderService {
         _orderDao.saveOrder(order);
     }
 
+    @Override
+    public int InsertOrder(Order or) {
+           return _orderDao.InsertOrder(or);
+    }
+
 
 }

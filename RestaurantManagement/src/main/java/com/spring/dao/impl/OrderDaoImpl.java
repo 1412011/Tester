@@ -42,6 +42,12 @@ public class OrderDaoImpl extends AbstractDao<Integer, Order> implements OrderDa
     public Order getBykey(int key) {
         return getByKey(key);
     }
+
+    @Override
+    public int InsertOrder(Order or) {
+        int key = (int)getSession().save(or);
+        return key;
+    }
         
         
 

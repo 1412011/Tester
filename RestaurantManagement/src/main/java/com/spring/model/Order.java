@@ -1,5 +1,6 @@
 package com.spring.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.Type;
@@ -31,7 +34,7 @@ public class Order {
 	private int status;
 	
 	@DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
-        @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+       @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@Column(name = "date_approve")
 	private DateTime dateApprove;
 	
@@ -39,10 +42,13 @@ public class Order {
         @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@Column(name = "date_delivery")
 	private DateTime dateDelivery;
-	
+        
 	@Column(name = "order_type")
 	private int type;
 	
+        @Column(name = "delete_flag")
+	private int delete_flag;
+        
 	@OneToMany(targetEntity=Dish.class, mappedBy="id", fetch=FetchType.EAGER)
 	private List<Dish> listDish;
 	
@@ -67,14 +73,36 @@ public class Order {
         this.dateApprove = dateApprove;
         this.dateDelivery = dateDelivery;
         this.type = type;
+        this.listDish = listDish;
         this.deliveryAddress = deliveryAddress;
         this.branch = branch;
         this.client = client;
-        this.listDish = listDish;
     }
+
+    public Order(int status, DateTime dateApprove, DateTime dateDelivery, int type, int delete_flag, String deliveryAddress, int branch, int client) {
+        this.status = status;
+        this.dateApprove = dateApprove;
+        this.dateDelivery = dateDelivery;
+        this.type = type;
+        this.delete_flag = delete_flag;
+        this.deliveryAddress = deliveryAddress;
+        this.branchId = branch;
+        this.clientId = client;
+    }
+
+
+
 
     public Order() {
     }
+
+        public int getDelete_flag() {
+            return delete_flag;
+        }
+
+        public void setDelete_flag(int delete_flag) {
+            this.delete_flag = delete_flag;
+        }
 
         
         public Branch getBranch() {
