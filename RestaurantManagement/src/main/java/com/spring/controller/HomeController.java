@@ -105,7 +105,7 @@ public class HomeController extends HomeService {
 //		
 //		return "redirect:/";
 //	}
-        @RequestMapping(value = "/BranchHome", method = RequestMethod.POST)
+        @RequestMapping(value = "/BranchHome", method = RequestMethod.GET)
 	public String getBranch(ModelMap modelMap, @RequestParam(value = "id") int branchId, HttpServletRequest request) {
 		//System.out.println("post");
 
@@ -196,12 +196,12 @@ public class HomeController extends HomeService {
 		return "about/about";
 	}
         
-        @RequestMapping(value = "/addToCarthome", method = RequestMethod.POST)
-	public void Addtocart(ModelMap modelMap, @RequestParam(value ="id") int id, HttpServletRequest request) {
+        @RequestMapping(value = "/addToCarthome", method = RequestMethod.GET)
+	public String Addtocart(ModelMap modelMap, @RequestParam(value ="id") int id, HttpServletRequest request) {
             
             addToCartHome(id);
             request.getSession().setAttribute("listcart", SessionUtil._cartListhome);
-
+            return "redirect:/";
 	}
         
         @ResponseBody

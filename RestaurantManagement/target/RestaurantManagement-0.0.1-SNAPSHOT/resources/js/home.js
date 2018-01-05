@@ -2,9 +2,14 @@
 $(document).ready(function() {
 
     var mainHeader = $('.fm-main-header');
-    
 
-    
+    window.onload = function () {
+        //alert("function first run");
+        if (!$('.cart-side-menu').hasClass('cart-side-menu--open')) {
+            $('.cart-side-menu').addClass('cart-side-menu--open');
+            $('.menu-page').addClass('menu-page--cart-open');
+    }};
+
     // fixed top header when scroll page
     $(window).scroll(function() {
 
@@ -58,7 +63,7 @@ $(document).ready(function() {
 
         $('a').each(function() {
             $(this).removeClass('active');
-        })
+        });
         $(this).addClass('active');
 
         var target = this.hash,
@@ -189,27 +194,29 @@ $(document).ready(function() {
 
     $('.add').on('click', function(e)
     {
-         if ($('.cart-side-menu').hasClass('cart-side-menu--open')) {
-        } else {
+         if (!$('.cart-side-menu').hasClass('cart-side-menu--open')) {
             $('.cart-side-menu').addClass('cart-side-menu--open');
             $('.menu-page').addClass('menu-page--cart-open');
         }
         
         var id = $(this).data('id');
-        $.ajax({
-		type : "POST",
-		url : "addToCarthome?id=" + id,
-		success : function(data) {
-			console.log(data);
-                        
-		},
-		error : function(xhr, status, error) {
-			console.log(xhr.responseText);
-		},
-                done : function(){
-                    window.location.reload();
-                }
-	});
+        window.location.href="addToCarthome?id=" + id;
+//        $.ajax({
+//		type : "POST",
+//		url : "addToCarthome?id=" + id,
+//		success : function(data) {
+//			console.log(data);
+//                        
+//                        
+//		},
+//		error : function(xhr, status, error) {
+//			console.log(xhr.responseText);
+//		},
+//                done : function(){
+//                    window.location.reload();
+//                    window.location.href;
+//                }
+//	});
     });
     
     $('.close').on('click', function(){
@@ -221,7 +228,7 @@ $(document).ready(function() {
     });
     
     $('.decre-order-dish').on('click',function(){
-        
+        console.log("decre-order-dish PRESS");
         var quantity = $('.items-quantity').val();
         var id = $(this).data('id');
         console.log(quantity);
@@ -235,7 +242,7 @@ $(document).ready(function() {
     });
     
     $('.incre-order-dish').on('click',function(){
-        
+        console.log("incre-order-dish PRESS");
         var quantity = $('.items-quantity').val();
         var id = $(this).data('id');
         quantity = quantity + 1;
@@ -276,16 +283,21 @@ $(document).ready(function() {
         $('#sources').change(function(){
         var id=$(this).val();
         console.log(id);
-        $.ajax({
-                        type : "POST",
-                        url : "BranchHome?id=" + id,
-                        success : function(data) {
-                                console.log(data);
-                        },
-                        error : function(xhr, status, error) {
-                                console.log(xhr.responseText);
-                        }
-                });
+//        $.ajax({
+//                        type : "POST",
+//                        url : "BranchHome?id=" + id,
+//                        success : function(data) {
+//                                console.log(data);
+//                               
+//                        },
+//                        error : function(xhr, status, error) {
+//                                console.log(xhr.responseText);
+//                        },
+//                        done : function(e) {
+//				console.log('DONE: ', e);
+//			}
+//                });
+        window.location.href="BranchHome?id=" + id;
         });
         
         //    function autosearch(list){

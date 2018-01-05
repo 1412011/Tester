@@ -16,7 +16,9 @@
                                         <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type">
                                         <c:forEach var = "branches" items="${listbranch}">
                                             <c:set var="idbranchselected" value="${idbranch}"/>
-                                            <option value="${branches.id}" <c:if test = "${branches.id == idbranchselected}">selected</c:if>>${branches.name}</option>
+                                            <option value="${branches.id}" <c:if test = "${branches.id == idbranchselected}">selected</c:if>>
+                                                ${branches.name}
+                                            </option>
                                         </c:forEach>
                                         </select>
                                       </div>
@@ -152,12 +154,14 @@
                                                 <!-- end ngIf: product.marketPrice && product.marketPrice > product.sellingPrice -->
                                             </div>
                                             <div class="button add no-animate ng-scope" data-id="${dish.id }">
-                                                <div class="ng-scope">Add to cart</div>
+                                                <div class="ng-scope">
+                                                    Add to cart
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="extra-info" ng-click=" $event.stopPropagation();">
                                             <div class="favorites-container ng-binding favourites-container-shadow">
-                                                <span class="fa fa-heart-o"></span> 1591 favs
+<!--                                                <span class="fa fa-heart-o"></span> 1591 favs-->
                                                 <div class="favourite-tooltip ng-hide" style="display: none;">
                                                     <div class="favourite-message">
                                                         Yay! Added this dish to your favourite list.
@@ -243,13 +247,13 @@
                     <!--A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.-->
                     <!--</div>-->
                 </div>
-                <button class="btn btn--red ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
-                    <span class="place-oder-btn">Place Order Here &nbsp; · &nbsp; $ ${totalpricehome}</span>
+                <button class="btn btn--red ng-binding ng-hide" ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
+                    <span class="place-oder-btn">Order Here &nbsp; · &nbsp; $ ${totalpricehome}</span>
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>
             </div>
-            <div class="proceed ng-hide" ng-show="cart.items.length">
-                <div class="free-items ng-hide" ng-show="cart.fi.length">
+            <div class="proceed ng-hide" >
+                <div class="free-items ng-hide" >
                     <!-- ngRepeat: item in cart.fi -->
                     <!--<div class="thank-you">-->
                     <!--A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.-->
@@ -281,8 +285,9 @@
         </div>
     </section>
 
-    <!--scroll on top button-->'
+    <!--scroll on top button-->
     <div>
         <a href="#mainController" class="scroll-to-top scroll-to-top-for-hide" deluminate_imagetype="unknown" style="">
         </a>
     </div>
+    

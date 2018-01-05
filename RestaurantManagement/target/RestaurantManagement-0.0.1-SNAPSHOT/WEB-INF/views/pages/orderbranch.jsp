@@ -9,13 +9,12 @@
                         </div><hr/>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="" id="order-new">
                                 <thead>
                                     <tr>
                                         <th>Order_id</th>
                                         <th>Order_status</th>
                                         <th>Dish</th>
-                                        <th>Quantity</th>
                                         <th>Name Client</th>
                                         <th>Phone Client</th>
                                         <th>Address delivery</th>
@@ -28,8 +27,26 @@
                                     <tr>
                                         <td class="center">Order_id....</td>
                                         <td class="center">Order_status ....</td>
-                                        <td class="center">Dish ...</td>
-                                        <td class="center">Quantity ...</td>
+                                        <td class="center">
+                                            <table class="" id="dish-quantity">
+                                              
+                                                    <tr>
+                                                        <td class="center">dish 1</td>
+                                                        <td class="center">2</td>
+     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">dish 2</td>
+                                                        <td class="center">3</td>
+     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">dish 3</td>
+                                                        <td class="center">1</td>
+     
+                                                    </tr>
+                                            </table>
+                                        </td>
                                         <td class="center">Name ...</td>
                                         <td class="center">Phone ...</td>
                                         <td class="center">Address Client</td>
@@ -39,8 +56,26 @@
                                       <tr>
                                         <td class="center">Order_id....</td>
                                         <td class="center">Order_status ....</td>
-                                        <td class="center">Dish ...</td>
-                                        <td class="center">Quantity ...</td>
+                                        <td class="center">
+                                            <table class="" id="dish-quantity">
+                                              
+                                                    <tr>
+                                                        <td class="center">dish 1</td>
+                                                        <td class="center">2</td>
+     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">dish 2</td>
+                                                        <td class="center">3</td>
+     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">dish 3</td>
+                                                        <td class="center">1</td>
+     
+                                                    </tr>
+                                            </table>
+                                        </td>
                                         <td class="center">Name ...</td>
                                         <td class="center">Phone ...</td>
                                         <td class="center">Address Client</td>
@@ -50,8 +85,26 @@
                                       <tr>
                                        <td class="center">Order_id....</td>
                                         <td class="center">Order_status ....</td>
-                                        <td class="center">Dish ...</td>
-                                        <td class="center">Quantity ...</td>
+                                        <td class="center">
+                                            <table class="" id="dish-quantity">
+                                              
+                                                    <tr>
+                                                        <td class="center">dish 1</td>
+                                                        <td class="center">2</td>
+     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">dish 2</td>
+                                                        <td class="center">3</td>
+     
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">dish 3</td>
+                                                        <td class="center">1</td>
+     
+                                                    </tr>
+                                            </table>
+                                        </td>
                                         <td class="center">Name ...</td>
                                         <td class="center">Phone ...</td>
                                         <td class="center">Address Client</td>
