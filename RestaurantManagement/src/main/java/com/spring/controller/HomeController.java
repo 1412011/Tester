@@ -117,7 +117,23 @@ public class HomeController extends HomeService {
 
 		return "redirect:/";
 	}
+        
+        @RequestMapping(value = "/Search", method = RequestMethod.GET)
+	public String getSearch(ModelMap modelMap, @RequestParam(value = "key") String key, HttpServletRequest request) {
+		//System.out.println("post");
 
+		//SessionUtil.storeBranchInfo(iBranchId);
+            
+            if(SessionUtil.branchId != -1)
+            {
+                SessionUtil._cartListhome=getListDishSearch(SessionUtil.branchId, key);
+                
+            }
+
+		return "redirect:/";
+	}
+        
+        
 	@ResponseBody
 	@RequestMapping(value = "/getBranch", method = RequestMethod.GET)
 	public List<Branch> getBranch(@RequestParam("tagName") String addressInput) {

@@ -263,7 +263,7 @@
                     A thank you from us to you for your loyalty and an order value of ?{{cart.paymentDetails.totalAmount}}.
                     </div>
                 </div>-->
-                <button class="btn btn--red ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
+                <button class="btn btn--yellow ng-binding ng-hide"  ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
                     <span class="place-oder-btn">Order Home &nbsp; · &nbsp; $ <span id ="span-total-home">${totalpricehome}</span></span>
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>

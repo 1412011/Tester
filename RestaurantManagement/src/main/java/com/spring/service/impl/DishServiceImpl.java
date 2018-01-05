@@ -144,5 +144,25 @@ public class DishServiceImpl implements DishService {
 //            return listnameonbranch;
 //    }
 
+    @Override
+    public List<Dish> getListDishSearch(int idbranch, String key) {
+        List<Object[]> listDish = _dishDao.getListDishForSearch(idbranch, key);
+        List<Dish> listDishSearch = new ArrayList<>();
+        for(Object[] dishObj: listDish)
+        {
+                int dishId = Integer.parseInt(String.valueOf(dishObj[0]));
+		String dishName = String.valueOf(dishObj[1]);
+		String dishDescription = String.valueOf(dishObj[2]);
+		String dishImage = String.valueOf(dishObj[3]);
+		int dishCategoryId = Integer.parseInt(String.valueOf(dishObj[4]));
+		int dishPrice = _dishDao.getPriceByDishId(dishId, idbranch);
+                
+                Dish dish = new Dish(dishId,dishName,dishDescription,dishImage,dishCategoryId,dishPrice);
+                listDishSearch.add(dish);
+        }
+        
+        return listDishSearch;
+    }
+
     
 }

@@ -5,7 +5,9 @@ $(document).ready(function() {
 
     window.onload = function () {
         //alert("function first run");
-        if (!$('.cart-side-menu').hasClass('cart-side-menu--open')) {
+        var TotalOrder = $('#span-total-here').text();
+        var total = parseInt(TotalOrder);
+        if (!$('.cart-side-menu').hasClass('cart-side-menu--open') && total>0) {
             $('.cart-side-menu').addClass('cart-side-menu--open');
             $('.menu-page').addClass('menu-page--cart-open');
     }};
@@ -322,4 +324,17 @@ $(document).ready(function() {
 //              source: itemsName 
 //           });
 //        });
+        $('#inputsearch').keyup(function(){
+             var txtSearch = $('#inputsearch').val();
+             //alert(txtSearch);
+             //window.location.href = "Search?key="+txtSearch;
+        });
 });
+
+    function closeCart()
+    {
+        if ($('.cart-side-menu').hasClass('cart-side-menu--open')) {
+            $('.cart-side-menu').removeClass('cart-side-menu--open');
+            $('.menu-page').removeClass('menu-page--cart-open');
+        }
+    };

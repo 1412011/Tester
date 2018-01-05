@@ -1,9 +1,16 @@
 
+.bottom-table-order{
+    margin-top: 50px;
+}
+
+.button-refesh{
+    margin-left: 10px;
+    background-color: yellow;
+}
 
 #order-new {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
 }
 
 #order-new td, #order-new th {

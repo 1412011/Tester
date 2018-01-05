@@ -115,6 +115,11 @@ public class HomeService {
             List<Dish> listDishOnBranch = _dishService.getListDishOnBranch(idbranch);
             return listDishOnBranch;
         }
+        public List<Dish> getListDishSearch(int idbranch, String key)
+        {
+            List<Dish> DishSearch = _dishService.getListDishSearch(idbranch, key);
+            return DishSearch;
+        }
          public void init()
          {
              Dish dish = _dishService.getFullDishInfoById(1000);
@@ -189,5 +194,6 @@ public class HomeService {
             s+="]";
             return s;
         }
+        
         
 }

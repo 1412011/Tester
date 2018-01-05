@@ -10,7 +10,7 @@
                 <!--<a href="http://www.blog.freshmenu.com/" class="fm-top-bar-text" style='margin-left: 10px;'>-->
                     <!--Freshmenu Blog-->
                 <!--</a>-->
-                <a href="orderbranch" target="_self" class="fm-top-bar-text" >
+                <a href="orderbranch" target="_self" class="fm-top-bar-text" onclick="closeCart()">
                     Receive Oder <span class="highlight">New</span>
                 </a>
                 <a href="${pageContext.request.contextPath}" target="_self" class="fm-top-bar-text" >

@@ -90,6 +90,18 @@ public class DishDaoImpl extends AbstractDao<Integer, Dish> implements DishDao {
           List<Object[]> listNameDish = query.list();
           return listNameDish; 
     }
+
+    @Override
+    public List<Object[]> getListDishForSearch(int id_branch, String key) {
+             String sql = "select * from dish d where dish.dish_category_id in "
+                  + "(select bm.dish_category_id from branch_menu bm where bm.branch_id = :idbranch)"
+                  + "AND d.dish_name LIKE '%"+key+"%'";  
+          SQLQuery query = getSession().createSQLQuery(sql);
+          query.setInteger("idbranch", id_branch);
+          List<Object[]> listDishOnSearch = query.list();
+          return listDishOnSearch;
+    }
+    
     
     
 }

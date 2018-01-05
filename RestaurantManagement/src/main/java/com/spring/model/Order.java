@@ -28,12 +28,12 @@ public class Order {
 	private int status;
 	
 	@DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+        @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@Column(name = "date_approve")
 	private DateTime dateApprove;
 	
 	@DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+        @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@Column(name = "date_delivery")
 	private DateTime dateDelivery;
 	
