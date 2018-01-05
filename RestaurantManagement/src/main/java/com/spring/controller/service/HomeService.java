@@ -230,7 +230,7 @@ public class HomeService {
             Order ordernew;
             if(type == 1)
             {
-                ordernew=new Order(statushome,DateTime.now(DateTimeZone.UTC),DateTime.now(DateTimeZone.UTC),orderType,delete,address,branchId,clientId);
+                ordernew=new Order(statushome,DateTime.now(),DateTime.now(),orderType,delete,address,branchId,clientId);
             }else
             {
                 ordernew=new Order(statushere,DateTime.now(),DateTime.now(),orderType,delete,address,branchId,clientId);
