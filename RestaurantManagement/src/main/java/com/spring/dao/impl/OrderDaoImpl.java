@@ -48,6 +48,15 @@ public class OrderDaoImpl extends AbstractDao<Integer, Order> implements OrderDa
         int key = (int)getSession().save(or);
         return key;
     }
+
+    @Override
+    public List<Object[]> getListOrderFromCS_2(int idbranch) {
+         String sql = "select * from orders od where od.branch_id=:idbranch and od.delete_flag=0 and (od.order_status=2 OR od.order_status=3)";
+        SQLQuery query = getSession().createSQLQuery(sql);
+        query.setInteger("idbranch", idbranch);
+        List<Object[]> listOrder = query.list();
+        return listOrder;
+    }
         
         
 

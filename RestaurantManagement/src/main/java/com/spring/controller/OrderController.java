@@ -35,8 +35,9 @@ public class OrderController extends OrderBranchService{
         if(SessionUtil.branchId != -1){
             List<Order> listOrder = _orderService.getFullListOrderFromCS(SessionUtil.branchId);
             model.addAttribute("listOrderOnBranch",listOrder);
-            
-            System.out.println(listOrder.size());
+            List<Order> listTrack = _orderService.getFullListOrderFromCS_2(SessionUtil.branchId);
+            model.addAttribute("listTracking",listTrack);
+
         }
 
         return "orderbranch";

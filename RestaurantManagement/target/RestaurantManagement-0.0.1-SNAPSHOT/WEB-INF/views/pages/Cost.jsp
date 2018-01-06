@@ -80,43 +80,44 @@
                                 <thead>
                                     <tr>
                                         <th>Order_id</th>
-                                        <th>Status</th>
+                                        <th>Order_status</th>
                                         <th>Dish / quantity</th>
                                         <th>Name Client</th>
                                         <th>Phone Client</th>
                                         <th>Address delivery</th>
                                         <th>Day delivery</th>
-<!--                                        <th>Action</th>-->
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                    <c:forEach var="orders" items="${listTracking}">
-                                        
                                     <tr>
-                                        <td style="width: 5%;">${orders.id}</td>
-                                        <td style="width: 5%;">${orders.status}</td>
-                                        <td style="width: 30%;">
+                                        <td style="width: 5%;">9000</td>
+                                        <td style="width: 10%;">Order_status ....</td>
+                                        <td style="width: 35%;">
                                             <table class="" id="dish-quantity" style="width:100%">
-                                                <c:forEach var="dishes" items="${orders.listDish}">
                                                     <tr>
-                                                        <td style="width: 90%;">${dishes.name}</td>
-                                                        <td style="width: 10%;">${dishes.quantity}</td>
+                                                        <td style="width: 90%;">dish 1</td>
+                                                        <td style="width: 10%;">2</td>
+     
                                                     </tr>
-                                                </c:forEach>
+                                                    <tr>
+                                                        <td class="center">dish 2</td>
+                                                        <td class="center">3</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">dish 3</td>
+                                                        <td class="center">1</td>
+     
+                                                    </tr>
                                             </table>
                                         </td>
-                                        <td style="width: 10%;">${orders.client.name}</td>
-                                        <td style="width: 10%;">${orders.client.phone}</td>
-                                        <td style="width: 30%;">${orders.deliveryAddress}</td>
-                                        <td style="width: 5%;">${orders.dateDelivery}</td>
-<!--                                        <td style="width: 5%;">
-                                            <input type="submit" value="submit" data-id="${orders.id}" class="submit-order"/>
-                                        </td>-->
-                                    </tr>
-                                    
-                                    </c:forEach>
-                                    
+                                        <td style="width: 10%;">Name ...</td>
+                                        <td style="width: 10%;">Phone ...</td>
+                                        <td style="width: 15%;">Address Client</td>
+                                        <td style="width: 10%;">5/1/2017 14:30</td>
+                                        <td style="width: 5%;"><input type="submit" value="print"/></td>
+       
+                               
                                 </tbody>
                             </table>
 
