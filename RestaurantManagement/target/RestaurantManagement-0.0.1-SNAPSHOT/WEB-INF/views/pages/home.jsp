@@ -37,11 +37,11 @@
             </div>
         </nav>
 
-        <div id="fm-search" align="right">   
+<!--        <div id="fm-search" align="right">   
             <form class="form-inline">
                 <input class="form-control mr-sm-2" id="inputsearch" onkeyup="handle()" data-info="" type="search" placeholder="Search" aria-label="Search">
               </form>
-        </div>
+        </div>-->
         
     </div>
 
@@ -245,7 +245,7 @@
             <!-- Button Place order  -->
             <div class="proceed ng-hide" ng-show="cart.items.length">
 
-                <button class="btn btn--red ng-binding ng-hide" ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
+                <button class="btn btn--red btn-order-here ng-binding ng-hide" ng-class="{'disabled': cartHasSoldOutProducts() || redirectingToCheckout}">
                     <span class="place-oder-btn">Order Here &nbsp; · &nbsp; $ <span id ="span-total-here">${totalpricehome}</span></span>
                     <i class="fa fa-circle-o-notch pull-right fa-spin ng-hide hide-element" ng-show="redirectingToCheckout"></i>
                 </button>
